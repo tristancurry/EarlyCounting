@@ -1,0 +1,5 @@
+/*
+
+Dot arrangement of domino tiles
+
+*/
