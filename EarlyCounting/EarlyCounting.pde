@@ -2,6 +2,7 @@ import ddf.minim.*;
 
 Minim minim;
 AudioPlayer player;
+boolean[][] dominos = new boolean[3][3];  // true/false arrangement of dots (2D)
 
 void setup()
 {
