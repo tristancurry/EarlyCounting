@@ -2,7 +2,9 @@ import ddf.minim.*;
 
 Minim minim;
 AudioPlayer player;
-boolean[][] dominos = new boolean[3][3];  // true/false arrangement of dots (2D)
+boolean[][] dominos = new boolean[3][3];  // true/false arrangement of shapes (2D)
+int gridSize=50;  // width and height of grid squares for shapes
+float shapeProp=0.9;  // proportion of the grid square width taken 
 
 void setup()
 {
