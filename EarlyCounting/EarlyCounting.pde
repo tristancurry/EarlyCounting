@@ -4,13 +4,27 @@ Minim minim;
 AudioPlayer player;
 //Char[][] dominos = new Char[9][9];  // true/false arrangement of shapes (2D)
 //int gridSize=50;  // width and height of grid squares for shapes
-float shapeProp=0.9;  // proportion of the grid square width taken by the N-gon
-int gridWidth;  //number of shapes along each side of the grid
+//float shapeProp=0.9;  // proportion of the grid square width taken by the N-gon
+//int gridWidth;  //number of shapes along each side of the grid
+int xSquare=0;
+int ySquare=0;
+int squareSize=600;
+int total=0;
+PImage dotSelected;
+PImage dotDeselected;
+NumberSet apples=new NumberSet(4, true);
+
+//Button testButton = new Button(0.4, 0.25, 0.25, false);
+//Button testButton2 = new Button(0.4, 0.75, 0.25, true);
 
 void setup()
 {
-  size(512, 200);
-  
+  size(int(squareSize*1.5),squareSize);
+  dotSelected=loadImage("images/apple.png");
+  dotDeselected=loadImage("images/apple.png");
+  //dotDeselected=dotSelected.clone();
+  dotDeselected.filter(GRAY);
+    
   // we pass this to Minim so that it can load files from the data directory
   minim = new Minim(this);
   
@@ -25,15 +39,22 @@ void setup()
   //player.play();
   
   //Hard-coded values for now
-  gridWidth=3;
+  //gridWidth=3;
   
 }
 
 void draw()
 {
-  background(0);
-  stroke(255);
+  background(255);
+  apples.display();
+  textAlign(RIGHT, TOP);
+  textSize(height*0.8);
+  fill(0);
+  text(str(total),width, 0);
+}
 
-  
-  
+void mousePressed(){
+  apples.click();
+//  testButton.click(mouseX, mouseY,0,0,height);
+//  testButton2.click(mouseX, mouseY,0,0,height);
 }
