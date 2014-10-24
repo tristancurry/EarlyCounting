@@ -12,13 +12,15 @@ int squareSize=600;
 int total=0;
 PImage dotSelected;
 PImage dotDeselected;
-NumberSet apples=new NumberSet(4, true);
+NumberSet apples=new NumberSet(1, false);
 
 //Button testButton = new Button(0.4, 0.25, 0.25, false);
 //Button testButton2 = new Button(0.4, 0.75, 0.25, true);
 
-void setup()
-{
+void setup(){
+  if (frame != null) {
+    frame.setResizable(true);
+  }
   size(int(squareSize*1.5),squareSize);
   dotSelected=loadImage("images/apple.png");
   dotDeselected=loadImage("images/apple.png");
@@ -36,11 +38,7 @@ void setup()
   // play the file from start to finish.
   // if you want to play the file again, 
   // you need to call rewind() first.
-  //player.play();
-  
-  //Hard-coded values for now
-  //gridWidth=3;
-  
+  //player.play();  
 }
 
 void draw()
@@ -55,6 +53,10 @@ void draw()
 
 void mousePressed(){
   apples.click();
-//  testButton.click(mouseX, mouseY,0,0,height);
-//  testButton2.click(mouseX, mouseY,0,0,height);
+  if (total==apples.maxCount){
+    apples=new NumberSet(total+1, false);
+    textSize(20);
+    text(str(apples.maxCount),700,300);
+    total=0;
+  }
 }
