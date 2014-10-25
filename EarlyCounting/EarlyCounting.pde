@@ -1,7 +1,7 @@
 import ddf.minim.*;
 
 Minim minim;
-AudioPlayer player;
+AudioPlayer[] number = new AudioPlayer[10];
 //Char[][] dominos = new Char[9][9];  // true/false arrangement of shapes (2D)
 //int gridSize=50;  // width and height of grid squares for shapes
 //float shapeProp=0.9;  // proportion of the grid square width taken by the N-gon
@@ -33,7 +33,7 @@ void setup(){
   // loadFile will look in all the same places as loadImage does.
   // this means you can find files that are in the data folder and the 
   // sketch folder. you can also pass an absolute path, or a URL.
-  player = minim.loadFile("Anything you can do, I can do better.wav");  //sample audio file (had handy at the time)
+  number[1] = minim.loadFile("audio/one.mp3");
   
   // play the file from start to finish.
   // if you want to play the file again, 
@@ -53,6 +53,14 @@ void draw()
 
 void mousePressed(){
   apples.click();
+  switch(total){
+    case 1:
+      number[1].play();
+    break;
+    case 2:
+      number[1].rewind();
+    break;
+  }
   if (total==apples.maxCount){
     apples=new NumberSet(total+1, false);
     textSize(20);
