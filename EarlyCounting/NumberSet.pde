@@ -162,7 +162,7 @@ class NumberSet{
     ySquare=0;
     squareSize=height;
     for(int i=0; i<maxCount; i++){
-      if ((i==lastClicked)&&(millis()-clickTime<1000)) opacity=int((millis()-clickTime)/1000.0*255);
+      if ((i==lastClicked)&&(millis()-clickTime<1000)) opacity=int((millis()-float(clickTime))/fadeDuration*255);
       else opacity=255;
       button[i].display(xSquare, ySquare, squareSize, opacity);
     }
@@ -173,6 +173,7 @@ class NumberSet{
       if (button[i].click(mouseX,mouseY,xSquare, ySquare, squareSize)){
         lastClicked=i;
         clickTime=millis();
+        
       }
     }
   }

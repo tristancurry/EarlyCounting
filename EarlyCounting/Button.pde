@@ -69,10 +69,10 @@ boolean twoWay;  //whether a button can be deselected to count down
       }else returnVal=false;
       switch(total){
         case 1:
-          number[1].trigger();
+          number[1].play();
         break;
         case 2:
-          //number[1].rewind();
+          number[1].rewind();
         break;
       }
     } else returnVal=false;

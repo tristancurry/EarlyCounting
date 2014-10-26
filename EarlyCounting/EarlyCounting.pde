@@ -1,19 +1,18 @@
 import ddf.minim.*;
 
 Minim minim;
-//AudioPlayer[] number = new AudioPlayer[10];
-AudioSample[] number = new AudioSample[10];
+AudioPlayer[] number = new AudioPlayer[10];
+//AudioSample[] number = new AudioSample[10];
 int xSquare=0;
 int ySquare=0;
 int squareSize=600;
+int fadeDuration=1;  // fade in / fade out time in ms
+
 int total=0;
 int clickTime;  // time that an object was pressed (to time fades, etc.)
 PImage dotSelected;
 PImage dotDeselected;
 NumberSet apples=new NumberSet(1, false);
-
-//Button testButton = new Button(0.4, 0.25, 0.25, false);
-//Button testButton2 = new Button(0.4, 0.75, 0.25, true);
 
 void setup(){
   if (frame != null) {
@@ -31,7 +30,7 @@ void setup(){
   // loadFile will look in all the same places as loadImage does.
   // this means you can find files that are in the data folder and the 
   // sketch folder. you can also pass an absolute path, or a URL.
-  number[1] = minim.loadSample("audio/one.mp3",256);
+  number[1] = minim.loadFile("audio/one.mp3");
   
   // play the file from start to finish.
   // if you want to play the file again, 
@@ -51,13 +50,13 @@ void draw()
 
 void keyPressed()
 {
-  if ( key == 's' ) number[1].trigger();
+//  if ( key == 's' ) number[1].trigger();
   //if ( key == 'k' ) kick.trigger();
 }
 
 void mousePressed(){
   apples.click();
-  if (total==apples.maxCount&&(millis()-clickTime>1000)){
+  if (total==apples.maxCount&&(millis()-clickTime>fadeDuration)){
     apples=new NumberSet(total+1, false);
     textSize(20);
     text(str(apples.maxCount),700,300);
