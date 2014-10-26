@@ -1,12 +1,14 @@
 import ddf.minim.*;
 
 Minim minim;
+//AudioPlayer one;
+//AudioPlayer two;
 AudioPlayer[] number = new AudioPlayer[10];
 //AudioSample[] number = new AudioSample[10];
 int xSquare=0;
 int ySquare=0;
 int squareSize=600;
-int fadeDuration=1;  // fade in / fade out time in ms
+int fadeDuration=100;  // fade in / fade out time in ms (minimum=1)
 
 int total=0;
 int clickTime;  // time that an object was pressed (to time fades, etc.)
@@ -30,7 +32,12 @@ void setup(){
   // loadFile will look in all the same places as loadImage does.
   // this means you can find files that are in the data folder and the 
   // sketch folder. you can also pass an absolute path, or a URL.
-  number[1] = minim.loadFile("audio/one.mp3");
+  //number[1] = minim.loadFile("audio/one.mp3");
+  number[1]=minim.loadFile("audio/one.wav");
+  number[2] =minim.loadFile("audio/two.mp3");
+  
+//  one.play();
+//  one.stop();
   
   // play the file from start to finish.
   // if you want to play the file again, 
@@ -68,6 +75,7 @@ void stop()
 {
   // always close Minim audio classes when you are done with them
   number[1].close();
+  //number[1].close();
   minim.stop();
   super.stop();
 }

@@ -26,11 +26,11 @@ boolean twoWay;  //whether a button can be deselected to count down
     int xLoc=x+int(xProp*w);
     int yLoc=y+int(yProp*w);
     int diam=int(dProp*w);
-    if(alpha<255){
-      fill(0);
-      textSize(30);
-      text(str(alpha),700,50);
-    }
+//    if(alpha<255){
+//      fill(0);
+//      textSize(30);
+//      text(str(alpha),700,50);
+//    }
     imageMode(CENTER);
     rectMode(CENTER);
     fill(255,255,255,170);
@@ -72,6 +72,8 @@ boolean twoWay;  //whether a button can be deselected to count down
           number[1].play();
         break;
         case 2:
+          //number[1].rewind();
+          number[2].play();
           number[1].rewind();
         break;
       }
