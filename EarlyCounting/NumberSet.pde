@@ -1,5 +1,6 @@
 class NumberSet{
   int maxCount;
+  int lastClicked;  // index of the previous button selected or deselected
   Button button[];
   
   NumberSet(int max, boolean bothWays){
@@ -156,17 +157,23 @@ class NumberSet{
   }
   
   void display(){
+    int opacity=255;  //opacity of button being displayed
     xSquare=0;
     ySquare=0;
     squareSize=height;
     for(int i=0; i<maxCount; i++){
-      button[i].display(xSquare, ySquare, squareSize);
+      if ((i==lastClicked)&&(millis()-clickTime<1000)) opacity=int((millis()-clickTime)/1000.0*255);
+      else opacity=255;
+      button[i].display(xSquare, ySquare, squareSize, opacity);
     }
   }
   
   void click(){
     for(int i=0; i<maxCount; i++){
-      button[i].click(mouseX,mouseY,xSquare, ySquare, squareSize);
+      if (button[i].click(mouseX,mouseY,xSquare, ySquare, squareSize)){
+        lastClicked=i;
+        clickTime=millis();
+      }
     }
   }
 }

@@ -1,15 +1,13 @@
 import ddf.minim.*;
 
 Minim minim;
-AudioPlayer[] number = new AudioPlayer[10];
-//Char[][] dominos = new Char[9][9];  // true/false arrangement of shapes (2D)
-//int gridSize=50;  // width and height of grid squares for shapes
-//float shapeProp=0.9;  // proportion of the grid square width taken by the N-gon
-//int gridWidth;  //number of shapes along each side of the grid
+//AudioPlayer[] number = new AudioPlayer[10];
+AudioSample[] number = new AudioSample[10];
 int xSquare=0;
 int ySquare=0;
 int squareSize=600;
 int total=0;
+int clickTime;  // time that an object was pressed (to time fades, etc.)
 PImage dotSelected;
 PImage dotDeselected;
 NumberSet apples=new NumberSet(1, false);
@@ -33,7 +31,7 @@ void setup(){
   // loadFile will look in all the same places as loadImage does.
   // this means you can find files that are in the data folder and the 
   // sketch folder. you can also pass an absolute path, or a URL.
-  number[1] = minim.loadFile("audio/one.mp3");
+  number[1] = minim.loadSample("audio/one.mp3",256);
   
   // play the file from start to finish.
   // if you want to play the file again, 
@@ -51,20 +49,26 @@ void draw()
   text(str(total),width, 0);
 }
 
+void keyPressed()
+{
+  if ( key == 's' ) number[1].trigger();
+  //if ( key == 'k' ) kick.trigger();
+}
+
 void mousePressed(){
   apples.click();
-  switch(total){
-    case 1:
-      number[1].play();
-    break;
-    case 2:
-      number[1].rewind();
-    break;
-  }
-  if (total==apples.maxCount){
+  if (total==apples.maxCount&&(millis()-clickTime>1000)){
     apples=new NumberSet(total+1, false);
     textSize(20);
     text(str(apples.maxCount),700,300);
     total=0;
   }
+}
+
+void stop()
+{
+  // always close Minim audio classes when you are done with them
+  number[1].close();
+  minim.stop();
+  super.stop();
 }

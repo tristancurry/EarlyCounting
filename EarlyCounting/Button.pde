@@ -22,37 +22,61 @@ boolean twoWay;  //whether a button can be deselected to count down
     twoWay=bothWays;
   }
   
-  void display(int x, int y, int w){
+  void display(int x, int y, int w, int alpha){
     int xLoc=x+int(xProp*w);
     int yLoc=y+int(yProp*w);
     int diam=int(dProp*w);
+    if(alpha<255){
+      fill(0);
+      textSize(30);
+      text(str(alpha),700,50);
+    }
     imageMode(CENTER);
     rectMode(CENTER);
     fill(255,255,255,170);
     strokeWeight(0);
     stroke(255);
     if(selected){
+      noTint();
+      image(dotDeselected, xLoc, yLoc, diam, diam);
+      rect(xLoc, yLoc, diam, diam);
+      tint(255,alpha);
       image(dotSelected, xLoc, yLoc, diam, diam);
     }else{
+      noTint();
+      image(dotDeselected, xLoc, yLoc, diam, diam);
+      tint(255,alpha);
       image(dotDeselected, xLoc, yLoc, diam, diam);
       rect(xLoc, yLoc, diam, diam);
     }
   }
   
-  void click(int x, int y, int xBox, int yBox, int wBox){
+  boolean click(int x, int y, int xBox, int yBox, int wBox){
     int xLoc=xBox+int(xProp*wBox);
     int yLoc=yBox+int(yProp*wBox);
     int radius=int(dProp*wBox/2);
+    boolean returnVal;
     
     if(isOver(x, y, xLoc, yLoc, radius)){
       if((twoWay)&&(selected)){
         selected=false;
         total=total-1;
+        returnVal=true;
       }else if(!selected){
         selected=true;
         total=total+1;
+        returnVal=true;
+      }else returnVal=false;
+      switch(total){
+        case 1:
+          number[1].trigger();
+        break;
+        case 2:
+          //number[1].rewind();
+        break;
       }
-    }
+    } else returnVal=false;
+    return returnVal;
   }
   
   boolean isOver(int x1, int y1, int x2, int y2, int r){
