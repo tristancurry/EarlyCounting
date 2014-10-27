@@ -14,6 +14,7 @@ int total=0;
 int clickTime;  // time that an object was pressed (to time fades, etc.)
 PImage dotSelected;
 PImage dotDeselected;
+PImage buttons;
 NumberSet apples=new NumberSet(1, false);
 
 void setup(){
@@ -23,6 +24,7 @@ void setup(){
   size(int(squareSize*1.5),squareSize);
   dotSelected=loadImage("images/apple.png");
   dotDeselected=loadImage("images/apple.png");
+  buttons=loadImage("images/PrevNextButton.jpg");
   //dotDeselected=dotSelected.clone();
   dotDeselected.filter(GRAY);
     
@@ -34,7 +36,7 @@ void setup(){
   // sketch folder. you can also pass an absolute path, or a URL.
   //number[1] = minim.loadFile("audio/one.mp3");
   number[1]=minim.loadFile("audio/one.wav");
-  number[2] =minim.loadFile("audio/two.mp3");
+  number[2] =minim.loadFile("audio/two.wav");
   
 //  one.play();
 //  one.stop();
@@ -48,11 +50,13 @@ void setup(){
 void draw()
 {
   background(255);
+  imageMode(CENTER);
+  image(buttons, width-height/4, int(height*0.85), width/5, width/5);
   apples.display();
-  textAlign(RIGHT, TOP);
-  textSize(height*0.8);
+  textAlign(CENTER, CENTER);
+  textSize(height*0.7);
   fill(0);
-  text(str(total),width, 0);
+  text(str(total),width-height/4,int(height*0.3));
 }
 
 void keyPressed()
