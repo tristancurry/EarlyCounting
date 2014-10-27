@@ -8,17 +8,10 @@ float xProp;  // x-coordinate as proportion of square
 float yProp;  // y-cooordinate as a proportion of square
 boolean selected=false;
 boolean twoWay;  //whether a button can be deselected to count down
-//PImage imgSelected;
-//PImage imgDeselected;
   
   
   //Button(float d, float x, float y, boolean bothWays){
   Button(boolean bothWays){
-//    dProp=d;
-//    xProp=x;
-//    yProp=y;
-    //imgSelected=dotSelected;
-    //imgDeselected=dotDeselected;
     twoWay=bothWays;
   }
   
@@ -26,11 +19,7 @@ boolean twoWay;  //whether a button can be deselected to count down
     int xLoc=x+int(xProp*w);
     int yLoc=y+int(yProp*w);
     int diam=int(dProp*w);
-//    if(alpha<255){
-//      fill(0);
-//      textSize(30);
-//      text(str(alpha),700,50);
-//    }
+
     imageMode(CENTER);
     rectMode(CENTER);
     fill(255,255,255,170);
@@ -61,6 +50,10 @@ boolean twoWay;  //whether a button can be deselected to count down
       if((twoWay)&&(selected)){
         selected=false;
         total=total-1;
+        number[total].play();
+        for(int i=0;i<10;i++){
+          number[i].rewind();
+        }
         returnVal=true;
       }else if(!selected){
         selected=true;

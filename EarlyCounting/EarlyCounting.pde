@@ -13,7 +13,7 @@ int clickTime;  // time that an object was pressed (to time fades, etc.)
 PImage dotSelected;
 PImage dotDeselected;
 PImage fwdBack;
-boolean twoWay=false;
+boolean twoWay=true;
 NumberSet apples=new NumberSet(1, twoWay);
 
 void setup(){
