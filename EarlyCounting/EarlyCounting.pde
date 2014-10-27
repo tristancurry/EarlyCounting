@@ -1,10 +1,8 @@
 import ddf.minim.*;
 
 Minim minim;
-//AudioPlayer one;
-//AudioPlayer two;
 AudioPlayer[] number = new AudioPlayer[10];
-//AudioSample[] number = new AudioSample[10];
+Navigation nav = new Navigation();
 int xSquare=0;
 int ySquare=0;
 int squareSize=600;
@@ -14,7 +12,9 @@ int total=0;
 int clickTime;  // time that an object was pressed (to time fades, etc.)
 PImage dotSelected;
 PImage dotDeselected;
-NumberSet apples=new NumberSet(1, false);
+PImage fwdBack;
+boolean twoWay=true;
+NumberSet apples=new NumberSet(1, twoWay);
 
 void setup(){
   if (frame != null) {
@@ -23,6 +23,7 @@ void setup(){
   size(int(squareSize*1.5),squareSize);
   dotSelected=loadImage("images/apple.png");
   dotDeselected=loadImage("images/apple.png");
+  fwdBack=loadImage("images/PrevNextButton.png");
   //dotDeselected=dotSelected.clone();
   dotDeselected.filter(GRAY);
     
@@ -33,49 +34,51 @@ void setup(){
   // this means you can find files that are in the data folder and the 
   // sketch folder. you can also pass an absolute path, or a URL.
   //number[1] = minim.loadFile("audio/one.mp3");
-  number[1]=minim.loadFile("audio/one.wav");
-  number[2] =minim.loadFile("audio/two.mp3");
+  number[0] =minim.loadFile("audio/zero.wav");
+  number[1] =minim.loadFile("audio/one.wav");
+  number[2] =minim.loadFile("audio/two.wav");
+  number[3] =minim.loadFile("audio/three.wav");
+  number[4] =minim.loadFile("audio/four.wav");
+  number[5] =minim.loadFile("audio/five.wav");
+  number[6] =minim.loadFile("audio/six.wav");
+  number[7] =minim.loadFile("audio/seven.wav");
+  number[8] =minim.loadFile("audio/eight.wav");
+  number[9] =minim.loadFile("audio/nine.wav");
   
-//  one.play();
-//  one.stop();
-  
-  // play the file from start to finish.
-  // if you want to play the file again, 
-  // you need to call rewind() first.
-  //player.play();  
+
 }
 
 void draw()
 {
   background(255);
-  apples.display();
-  textAlign(RIGHT, TOP);
-  textSize(height*0.8);
+  imageMode(CENTER);
+  nav.display();
+  textAlign(LEFT,BOTTOM);
+  textSize(height/30);
   fill(0);
-  text(str(total),width, 0);
+  text(" Feedback to Chris.Heddles@asms.sa.edu.au",0,height);
+  apples.display();
+  textAlign(CENTER, CENTER);
+  textSize(height*0.7);
+  fill(0);
+  text(str(total),nav.xCentre,int(height*0.3));
 }
 
-void keyPressed()
-{
-//  if ( key == 's' ) number[1].trigger();
-  //if ( key == 'k' ) kick.trigger();
+void keyPressed(){
+  //  might make left and right arrows shift between grids
 }
 
 void mousePressed(){
   apples.click();
-  if (total==apples.maxCount&&(millis()-clickTime>fadeDuration)){
-    apples=new NumberSet(total+1, false);
-    textSize(20);
-    text(str(apples.maxCount),700,300);
-    total=0;
-  }
+  nav.click(mouseX,mouseY);
 }
 
 void stop()
 {
   // always close Minim audio classes when you are done with them
-  number[1].close();
-  //number[1].close();
+  for(int i=0;i<10;i++){
+    number[i].close();
+  }
   minim.stop();
   super.stop();
 }
