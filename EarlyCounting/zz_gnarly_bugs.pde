@@ -13,4 +13,8 @@ than class variables so both objects had the same size, location and state.
 Reseting the display with a new set (with one more apple wasn't working using the "NumberSet apples=new NumberSet(total+1, false);"
 comman to reinitialise the class instance. It turns out that this was due to attemppting to declare that variable again rather
 than just reinstantiating it. The command "apples=new NumberSet(total+1, false);" works
+
+When triggering audio, there is a 0.5-1s lag. Not sure if this is an intractable issue with minim. Tried fading the apples in
+to mask it but this failed the 2y/o test. She kept tapping on the apple repeatedly (but not when it snapped to "selected").
+tried using sample instead of player. Will try snippet next.
 */
