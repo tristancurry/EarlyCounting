@@ -65,18 +65,12 @@ boolean twoWay;  //whether a button can be deselected to count down
       }else if(!selected){
         selected=true;
         total=total+1;
+        number[total].play();
+        for(int i=0;i<10;i++){
+          number[i].rewind();
+        }
         returnVal=true;
       }else returnVal=false;
-      switch(total){
-        case 1:
-          number[1].play();
-        break;
-        case 2:
-          //number[1].rewind();
-          number[2].play();
-          number[1].rewind();
-        break;
-      }
     } else returnVal=false;
     return returnVal;
   }
