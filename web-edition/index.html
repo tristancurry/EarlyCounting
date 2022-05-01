@@ -2,9 +2,61 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Early Counting</title>
+    <style media="screen">
+
+      .main {
+        background-color: black;
+      }
+
+      .countables {
+        width: 100vh;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .spacer {
+        background-color: deepPink;
+        width: 50vh;
+        height: 50vh;
+      }
+
+      .apple {
+        background-image: url('data/images/apple.png');
+        background-size: contain;
+        width: 50vh;
+        height: 50vh;
+      }
+    </style>
   </head>
   <body>
-    
+    <!-- in setup js, preload all necessary assets to get started.
+        Load next highest number so it's ready for next page,
+        e.g. if counting limit is 3, load audio for 4-->
+
+    <div class="main">
+      <div class="countables">
+        <div class="spacer" style="grid-column: 1; grid-row: 1;">
+        </div>
+        <div class="apple" style="grid-column: 2; grid-row: 1;">
+        </div>
+        <div class="spacer" style="grid-column: 1; grid-row: 2;">
+        </div>
+        <div class="apple" style="grid-column: 2; grid-row: 2;">
+        </div>
+
+      </div>
+      <div class="control">
+        <div class="number">
+
+        </div>
+        <div class="controls">
+
+        </div>
+
+      </div>
+
+    </div>
+
   </body>
 </html>
