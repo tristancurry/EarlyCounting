@@ -6,33 +6,8 @@
     <meta name="theme-color" content="#8900bf">
     <meta name="msapplication-navbutton-color" content="#8900bf">
     <meta name="apple-mobile-web-app-status-bar-style" content="#8900bf">
-    <link rel="stylesheet" href="/css/layout.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <style media="screen">
-
-      .main {
-        background-color: black;
-      }
-
-      .countables {
-        width: 100vh;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      }
-
-      .spacer {
-        background-color: deepPink;
-        width: 50vh;
-        height: 50vh;
-      }
-
-      .apple {
-        background-image: url('data/images/apple.png');
-        background-size: contain;
-        width: 50vh;
-        height: 50vh;
-      }
-    </style>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <!-- in setup js, preload all necessary assets to get started.
@@ -41,15 +16,16 @@
         <script type="text/javascript" src="scripts/setup.js"></script>
     <div class="main">
       <div class="countables">
-        <div class="spacer" style="grid-column: 1; grid-row: 1;">
+        <div class="countables-grid">
+          <div class="apple"></div>
+          <div class="apple"></div>
+          <div class="apple"></div>
+          <div class="apple"></div>
+          <div class="apple"></div>
+          <div class="apple"></div>
+          <div class="apple"></div>
+          
         </div>
-        <div class="apple" style="grid-column: 2; grid-row: 1;">
-        </div>
-        <div class="spacer" style="grid-column: 1; grid-row: 2;">
-        </div>
-        <div class="apple" style="grid-column: 2; grid-row: 2;">
-        </div>
-
       </div>
       <div class="control">
         <div class="number">
