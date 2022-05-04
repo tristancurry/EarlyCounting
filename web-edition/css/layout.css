@@ -37,7 +37,6 @@ body {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(33vh, 1fr));
 }
 
 .control {
@@ -59,6 +58,7 @@ body {
 .apple img {
   display: block;
   width: 100%;
+  height: 100%;
   border: none;
 }
 
@@ -75,8 +75,10 @@ body {
     width: 30%;
   }
 
-  .countables-grid {
-  }
+}
+
+@media (orientation: landscape) and (min-aspect-ratio: 12/9) {
+
 }
 
 @media (orientation: portrait) {
@@ -89,15 +91,16 @@ body {
     order: 2;
   }
 
-  .countables-grid {
-    grid-template-columns: repeat(auto-fit, minmax(33vw, 1fr));
-  }
-
-
-
   .control {
     height: 30%;
-    min-height: 10rem;
+    /* min-height: 10rem; */
     order: 1;
   }
+
+  .countables-grid {
+  }
+}
+
+@media (orientation: portrait) and (max-aspect-ratio: 9/12){
+
 }
