@@ -1,5 +1,5 @@
 const N_MAX = 16; // highest number expected
-let N = 12;
+let N = 9;
 const GRID_DIMENSIONS = {
   wide: [],
   narrow: [],
@@ -32,15 +32,16 @@ for (let i = 0, l = GRID_DIMENSIONS.wide.length; i < l; i++) {
 //determine which style of grid to use, based on screen dimensions
 //1 - tall or wide: try for rows of 5 (anticipating 10 countables)
 //2 - not all that tall/wide: use a square grid whenever possible.
-const wideQuery = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 12/9)');
-const narrowQuery = window.matchMedia('(orientation: portrait) and (max-aspect-ratio: 9/12)');
+const wideQuery = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)');
+const narrowQuery = window.matchMedia('(orientation: portrait) and (max-aspect-ratio: 9/16)');
+const portraitQuery = window.matchMedia('(orientation: portrait)');
+const landscapeQuery = window.matchMedia('(orientation: landscape)');
+
 wideQuery.addListener(() => {
-  console.log(wideQuery);
   resizeGrid(N);
 });
 
 narrowQuery.addListener(() => {
-  console.log(narrowQuery);
   resizeGrid(N);
 });
 
@@ -74,16 +75,16 @@ console.log(GRID_DIMENSIONS);
 
 function resizeGrid (N) {
   if(wideQuery.matches){
-    appleGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${GRID_DIMENSIONS.wide[N].fraction}%, 1fr))`;
+    // appleGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${GRID_DIMENSIONS.wide[N].fraction}%, 1fr))`;
     appleGrid.style.gridTemplateRows = `repeat(auto-fit, minmax(${Math.floor(100/GRID_DIMENSIONS.wide[N].rows)}%, 1fr))`;
   } else if(narrowQuery.matches){
     // appleGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${GRID_DIMENSIONS.narrow[N].fraction}%, 1fr))`;
     appleGrid.style.gridTemplateRows = `repeat(auto-fit, minmax(${Math.floor(100/GRID_DIMENSIONS.narrow[N].rows)}%, 1fr))`;
 
-  } else {
+  } else if(landscapeQuery.matches) {
+    appleGrid.style.gridTemplateRows = `repeat(auto-fit, minmax(${GRID_DIMENSIONS.square[N].fraction}%, 1fr))`;
+  } else if(portraitQuery.matches){
     appleGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${GRID_DIMENSIONS.square[N].fraction}%, 1fr))`;
-    appleGrid.style.gridTemplateRows = `repeat(auto-fit, minmax(${Math.floor(100/GRID_DIMENSIONS.square[N].rows)}%, 1fr))`;
-
   }
 
 }
