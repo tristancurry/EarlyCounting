@@ -77,7 +77,7 @@ function resizeGrid (N) {
     appleGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${GRID_DIMENSIONS.wide[N].fraction}%, 1fr))`;
     appleGrid.style.gridTemplateRows = `repeat(auto-fit, minmax(${Math.floor(100/GRID_DIMENSIONS.wide[N].rows)}%, 1fr))`;
   } else if(narrowQuery.matches){
-    appleGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${GRID_DIMENSIONS.narrow[N].fraction}%, 1fr))`;
+    // appleGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${GRID_DIMENSIONS.narrow[N].fraction}%, 1fr))`;
     appleGrid.style.gridTemplateRows = `repeat(auto-fit, minmax(${Math.floor(100/GRID_DIMENSIONS.narrow[N].rows)}%, 1fr))`;
 
   } else {
