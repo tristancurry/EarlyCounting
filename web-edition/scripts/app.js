@@ -47,6 +47,14 @@ prevButton.addEventListener('click', () => {
 
 
 const appleGrid = document.getElementsByClassName('countables-grid')[0];
+appleGrid.addEventListener('click', (event) => {
+  if(event.target.classList.contains('greyed')) {
+    event.target.classList.remove('greyed');
+    counted++;
+    numberDisplay.innerText = counted;
+  }
+
+})
 
 for (let i = 0; i < N_MAX; i++) {
   let celly = document.createElement('div');
@@ -54,7 +62,7 @@ for (let i = 0; i < N_MAX; i++) {
   appleGrid.appendChild(celly);
 
   let markup = `
-  <div class="apple">
+  <div class="apple greyed">
     <img src="${IMAGE_PATH}"/>
   </div>
   <div class="spacer nodisplay">

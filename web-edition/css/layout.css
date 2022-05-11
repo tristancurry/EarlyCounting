@@ -98,6 +98,11 @@ body {
 .nodisplay {
   display: none;
 }
+
+.greyed {
+  filter: saturate(0);
+  opacity: 0.5;
+}
 @media (orientation: landscape) {
   .main {
     flex-direction: row;
