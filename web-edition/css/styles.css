@@ -1,0 +1,4 @@
+.cell:active {
+  transform: scaleY(0.95) scaleX(1.05);
+  transition: transform 0.05s ease-in;
+}

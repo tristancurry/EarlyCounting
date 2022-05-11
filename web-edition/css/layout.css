@@ -71,10 +71,7 @@ body {
   height: 100%;
 }
 
-.cell:active {
-  transform: scale(0.9);
-  transition: transform 0.05s ease-in-out;
-}
+
 
 .apple img {
   display: block;
