@@ -1,6 +1,6 @@
 * {
-  border: 1px solid black;
-  box-sizing: content-box;
+  /* border: 1px solid black; */
+  /* box-sizing: content-box; */
 }
 
 body {
@@ -41,6 +41,15 @@ body {
 
 .control {
     display: flex;
+    justify-content: center;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .spacer {
@@ -50,18 +59,28 @@ body {
 }
 
 .apple {
-  /* background-image: url('../assets/images/apple.png'); */
-  /* background-size: contain; */
-  /* background-repeat: no-repeat; */
-}
-
-.apple img {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  border: none;
+}
+.apple img {
+  display: block;
 }
 
+.number {
+  font-size: 50vh;
+  align-self: center;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.nodisplay {
+  display: none;
+}
 @media (orientation: landscape) {
   .main {
     flex-direction: row;
@@ -71,6 +90,9 @@ body {
     width: 70%;
   }
 
+  .apple img {
+      max-width: 100%;
+  }
 
   .control {
     width: 30%;
@@ -78,17 +100,23 @@ body {
 
 }
 
-@media (orientation: landscape) and (max-aspect-ratio: 16/9) {
+@media (orientation: landscape){
   .countables-grid {
-    height: 95vh;
-    width: 95vh;
+    height: 80vh;
+    width: 80vh;
   }
+
+  .control {
+    flex-direction: column;
+  }
+
+
 }
 
 @media (orientation: landscape) and (min-aspect-ratio: 16/9) {
   .countables-grid {
     height: 95vh;
-    width: calc(100vh*4/3);
+    width: 120vh;
     max-height: 100%;
   }
 }
@@ -104,22 +132,48 @@ body {
   }
 
   .control {
+    flex-direction: row;
+    justify-content: center;
     height: 30%;
     /* min-height: 10rem; */
     order: 1;
+
   }
 
   .countables-grid {
+    max-width: 65vh;
+  }
+
+  .apple img {
+      max-height: 100%;
+  }
+
+  .number {
+    font-size: 40vw;
   }
 }
+
+@media (orientation: portrait) {
+
+    .number {
+      order: 2;
+      font-size: 30vw;
+    }
+
+    .prev {
+      order: 1;
+    }
+
+    .next {
+      order: 3;
+    }
+}
+
 @media (orientation: portrait) and (min-aspect-ratio: 9/16){
   .countables-grid {
     height: 80vw;
     width: 80vw;
     max-height: 100%;
   }
-}
-
-@media (orientation: portrait) and (max-aspect-ratio: 9/16){
 
 }
