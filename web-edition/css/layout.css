@@ -118,10 +118,6 @@ body {
   .control {
     width: 30%;
   }
-
-}
-
-@media (orientation: landscape){
   .countables-grid {
     height: 80vh;
     width: 80vh;
@@ -131,14 +127,19 @@ body {
     flex-direction: column;
   }
 
-
 }
+
+
 
 @media (orientation: landscape) and (min-aspect-ratio: 16/9) {
   .countables-grid {
     height: 95vh;
     width: 120vh;
     max-height: 100%;
+  }
+
+  .cell {
+    max-width: 80%;
   }
 }
 
@@ -165,48 +166,31 @@ body {
   }
 
   .apple img {
-      max-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .number {
+    order: 2;
     font-size: 40vw;
   }
 
   .number-long {
     font-size: 40vw;
   }
-}
 
-@media (orientation: portrait) {
-
-  .apple img {
-    max-height: 100%;
-    max-width: 100%;
+  .prev {
+    order: 1;
   }
 
-    .number {
-      order: 2;
-      font-size: 30vw;
-    }
-
-    .number-long {
-      font-size: 30vw;
-    }
-
-    .prev {
-      order: 1;
-    }
-
-    .next {
-      order: 3;
-    }
+  .next {
+    order: 3;
+  }
 }
 
-@media (orientation: portrait) and (min-aspect-ratio: 9/16){
-  .countables-grid {
-    height: 80vw;
-    width: 80vw;
-    max-height: 100%;
-  }
+@media (orientation: portrait) and (max-aspect-ratio: 9/16){
 
+  .cell {
+    max-width: 90%;
+  }
 }

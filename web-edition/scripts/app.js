@@ -1,6 +1,7 @@
 const N_MAX = 16; // highest number expected
 const IMAGE_PATH = 'assets/images/apple.png';
 let N = 7;
+let counted = 0;
 if(N > N_MAX) {
   N = N_MAX;
 }
@@ -23,7 +24,8 @@ nextButton.addEventListener('click', () => {
   resizeGrid(N);
   if(N > 9) {numberDisplay.classList.add('number-long');}
   else {numberDisplay.classList.remove('number-long');}
-  numberDisplay.innerText = N;
+  counted = 0;
+  numberDisplay.innerText = counted;
 });
 
 prevButton.addEventListener('click', () => {
@@ -36,6 +38,8 @@ prevButton.addEventListener('click', () => {
   if(N > 9) {numberDisplay.classList.add('number-long');}
   else {numberDisplay.classList.remove('number-long');}
   numberDisplay.innerText = N;
+  counted = 0;
+  numberDisplay.innerText = counted;
   //consider replacing this with a neat transition effect, utilising
   //some extra divs, or an extended div that can slide along...
 });
