@@ -10,6 +10,37 @@ const GRID_DIMENSIONS = {
   square: []
 };
 
+const nextButton = document.getElementsByClassName('next')[0];
+const prevButton = document.getElementsByClassName('prev')[0];
+const numberDisplay = document.getElementsByClassName('number')[0];
+
+nextButton.addEventListener('click', () => {
+  if(N < N_MAX) {
+    N++;
+  } else {
+    N = 1;
+  }
+  resizeGrid(N);
+  if(N > 9) {numberDisplay.classList.add('number-long');}
+  else {numberDisplay.classList.remove('number-long');}
+  numberDisplay.innerText = N;
+});
+
+prevButton.addEventListener('click', () => {
+  if(N > 1) {
+    N--;
+  } else {
+    N = N_MAX;
+  }
+  resizeGrid(N);
+  if(N > 9) {numberDisplay.classList.add('number-long');}
+  else {numberDisplay.classList.remove('number-long');}
+  numberDisplay.innerText = N;
+  //consider replacing this with a neat transition effect, utilising
+  //some extra divs, or an extended div that can slide along...
+});
+
+
 
 const appleGrid = document.getElementsByClassName('countables-grid')[0];
 
@@ -79,7 +110,7 @@ const LAYOUTS = {
 LAYOUTS.square = [
   [1],
   [1],
-  [1, 0, 1, 0],
+  [1, 0, 0, 1],
   [1, 0, 0, 0, 1, 0, 0, 0, 1],
   [1, 1, 1, 1],
   [1, 0, 1, 0, 1, 0, 1, 0, 1],

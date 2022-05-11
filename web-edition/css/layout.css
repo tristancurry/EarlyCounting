@@ -74,6 +74,10 @@ body {
   align-self: center;
 }
 
+.number-long {
+  font-size: 40vh;
+}
+
 .hide {
   opacity: 0;
 }
@@ -151,12 +155,20 @@ body {
   .number {
     font-size: 40vw;
   }
+
+  .number-long {
+    font-size: 40vw;
+  }
 }
 
 @media (orientation: portrait) {
 
     .number {
       order: 2;
+      font-size: 30vw;
+    }
+
+    .number-long {
       font-size: 30vw;
     }
 
