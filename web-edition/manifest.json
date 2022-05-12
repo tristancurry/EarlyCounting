@@ -1,6 +1,6 @@
 {
 	"name": "Counting Apples",
-	"short_name": "Fipoff",
+	"short_name": "Counting Apples",
 	"display": "standalone",
 	"scope": "../counting",
 	"start_url": "index.html",

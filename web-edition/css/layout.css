@@ -141,8 +141,8 @@ body {
 @media (orientation: landscape) and (min-aspect-ratio: 2/1) {
   .countables-grid {
     height: 95%;
-    width: 110vh;
-    max-height: 100%;
+    width: 100vh;
+    /* max-height: 100%; */
   }
 
   .cell {
