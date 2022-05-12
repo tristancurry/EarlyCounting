@@ -1,28 +1,13 @@
-let CACHE_NAME = 'fipoff-cache-release001';
+let CACHE_NAME = 'counting-cache-t002';
 let urlsToCache = [
 	'index.html',
 	'manifest.json',
 	'css/styles.css',
-	'images/bgtest.png',
-	'images/devices.png',
+	'css/layout.css',
+	'assets/images/apple.png',
 	'scripts/swHandling.js',
-	'scripts/main.js',
-	'scripts/interface.js',
-	'scripts/fip.js',
-	'scripts/config.js',
-	'systems/station33/station33a.js',
-	'systems/station33/blockplanA_addr.png',
-	'systems/station33/station33c.js',
-	'systems/station33/blockplanA_conv.png',
-	'systems/abstract/abstractSimple/abstractSimple.js',
-	'systems/abstract/abstractSimple/abstractSimple.png',
-	'systems/abstract/abstractComplex/abstractComplex.js',
-	'systems/abstract/abstractComplex/abstractComplex_main_contents.png',
-	'systems/abstract/abstractComplex/abstractComplex_main_p2.png',
-	'systems/abstract/abstractComplex/abstractComplex_main_p3.png',
-	'systems/abstract/abstractComplex/abstractComplex_east.png',
-	'systems/abstract/abstractComplex/abstractComplex_west.png',
-
+	'scripts/app.js',
+	'scripts/setup.js',
 ];
 
 self.addEventListener('install', function(event) {
@@ -74,7 +59,7 @@ self.addEventListener('activate', function(event) {
 		caches.keys().then(function(cacheNames){
 			return Promise.all(
 				cacheNames.filter(function(cacheName){
-					return cacheName.startsWith('fipoff-') && cacheName != CACHE_NAME;
+					return cacheName.startsWith('counting-') && cacheName != CACHE_NAME;
 				}).map(function(cacheName){
 					return caches.delete(cacheName);
 				})

@@ -80,7 +80,7 @@ GRID_DIMENSIONS.wide = [
   {rows: 2, cols: 3, fraction: 33},
   {rows: 2, cols: 3, fraction: 33},
   {rows: 2, cols: 3, fraction: 33},
-  {rows: 2, cols: 4, fraction: 25},
+  {rows: 3, cols: 3, fraction: 33},
   {rows: 2, cols: 4, fraction: 25},
   {rows: 3, cols: 4, fraction: 25},
   {rows: 3, cols: 4, fraction: 25},
@@ -236,15 +236,15 @@ resizeGrid(N);
 
 function resizeGrid (N) {
   let shape = 'square';
-  if(wideQuery.matches){
-    shape = 'wide';
-  } else if(narrowQuery.matches){
-    shape = 'narrow';
-  }
+  // if(wideQuery.matches){
+  //   shape = 'wide';
+  // } else if(narrowQuery.matches){
+  //   shape = 'narrow';
+  // }
 
   //adjust grid parameters
   appleGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${GRID_DIMENSIONS[shape][N].fraction}%, 1fr))`;
-  appleGrid.style.gridTemplateRows = `repeat(auto-fit, minmax(${Math.floor(100/GRID_DIMENSIONS[shape][N].rows)}%, 1fr))`;
+  // appleGrid.style.gridTemplateRows = `repeat(auto-fit, minmax(${Math.floor(100/GRID_DIMENSIONS[shape][N].rows)}%, 1fr))`;
 
 
   //set the correct layout
