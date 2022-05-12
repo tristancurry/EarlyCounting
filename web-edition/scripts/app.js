@@ -10,7 +10,7 @@ const GRID_DIMENSIONS = {
   narrow: [],
   square: []
 };
-//testing testng
+//testing testng testing
 const nextButton = document.getElementsByClassName('next')[0];
 const prevButton = document.getElementsByClassName('prev')[0];
 const numberDisplay = document.getElementsByClassName('number')[0];
