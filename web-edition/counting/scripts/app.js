@@ -50,6 +50,8 @@ appleGrid.addEventListener('click', (event) => {
     event.target.classList.remove('greyed');
     counted++;
     numberDisplay.innerText = counted;
+    // let speech = new SpeechSynthesisUtterance(counted);
+    // speechSynthesis.speak(speech);
   }
 
 })
