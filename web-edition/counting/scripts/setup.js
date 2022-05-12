@@ -18,7 +18,8 @@ let loadScript = (url) => {
 
 
 const scriptURLs = [
-  `${SCRIPT_PATH}/app.js`
+  `${SCRIPT_PATH}/app.js`,
+  `${SCRIPT_PATH}/swHandling.js`
 ];
 
 

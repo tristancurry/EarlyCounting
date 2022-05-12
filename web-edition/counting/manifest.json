@@ -2,7 +2,7 @@
 	"name": "Counting Apples",
 	"short_name": "Counting Apples",
 	"display": "standalone",
-	"scope": "../counting",
+	"scope": "../counting/",
 	"start_url": "index.html",
 	"theme_color": "#8900bf",
 	"background_color": "#444444",
