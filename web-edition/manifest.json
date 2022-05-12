@@ -1,0 +1,21 @@
+{
+	"name": "Counting Apples",
+	"short_name": "Fipoff",
+	"display": "standalone",
+	"scope": "../counting",
+	"start_url": "index.html",
+	"theme_color": "#8900bf",
+	"background_color": "#444444",
+	"icons": [
+		{
+			"src": "images/icon_192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "images/icon_512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
