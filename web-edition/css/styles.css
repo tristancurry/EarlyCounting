@@ -1,7 +1,10 @@
-.cell:active {
-  transform: scaleY(0.95) scaleX(1.05);
-  transition: transform 0.05s ease-in;
+@media (hover: hover) {
+  .cell:active {
+    transform: scaleY(0.95) scaleX(1.05);
+    transition: transform 0.05s ease-in;
+  }
 }
+
 
 .greyed {
   filter: saturate(0);
