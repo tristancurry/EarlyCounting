@@ -41,8 +41,9 @@ body {
 }
 
 .control {
-    display: flex;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .cell {
@@ -51,8 +52,8 @@ body {
   align-items: center;
   width: fit-content;
   height: fit-content;
+  max-width: 90%;
   border-radius: 40%;
-  /* box-shadow: 1px 1px 3px rgba(0,0,0,0.7); */
   overflow: hidden;
   transition: transform 0.1s ease-out;
 }
@@ -80,11 +81,12 @@ body {
   filter: hue-rotate(0deg);
   pointer-events: none;
   user-select: none;
+  user-drag: none;
 }
 
 .number {
-  font-size: 50vh;
   align-self: center;
+  user-select: none;
 }
 
 .number-long {
@@ -103,6 +105,7 @@ body {
   filter: saturate(0);
   opacity: 0.5;
 }
+
 @media (orientation: landscape) {
   .main {
     flex-direction: row;
@@ -120,6 +123,7 @@ body {
   .control {
     width: 30%;
   }
+
   .countables-grid {
     height: 80vh;
     width: 80vh;
@@ -129,11 +133,16 @@ body {
     flex-direction: column;
   }
 
+  .number {
+    height: 50vh;
+    font-size: 50vh;
+  }
+
 }
 
 
 
-@media (orientation: landscape) and (min-aspect-ratio: 16/9) {
+@media (orientation: landscape) and (min-aspect-ratio: 2/1) {
   .countables-grid {
     height: 95vh;
     width: 120vh;
@@ -164,7 +173,7 @@ body {
   }
 
   .countables-grid {
-    max-width: 65vh;
+    max-width: 75vw;
   }
 
   .apple img {
@@ -190,9 +199,10 @@ body {
   }
 }
 
-@media (orientation: portrait) and (max-aspect-ratio: 9/16){
+@media (orientation: portrait) and (max-aspect-ratio: 1/2) {
 
-  .cell {
-    max-width: 90%;
+  .countables-grid {
+    max-width: 65vw;
   }
+
 }

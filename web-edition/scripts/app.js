@@ -24,8 +24,7 @@ nextButton.addEventListener('click', () => {
   resizeGrid(N);
   if(N > 9) {numberDisplay.classList.add('number-long');}
   else {numberDisplay.classList.remove('number-long');}
-  counted = 0;
-  numberDisplay.innerText = counted;
+  resetAppleCount();
 });
 
 prevButton.addEventListener('click', () => {
@@ -38,8 +37,7 @@ prevButton.addEventListener('click', () => {
   if(N > 9) {numberDisplay.classList.add('number-long');}
   else {numberDisplay.classList.remove('number-long');}
   numberDisplay.innerText = N;
-  counted = 0;
-  numberDisplay.innerText = counted;
+  resetAppleCount();
   //consider replacing this with a neat transition effect, utilising
   //some extra divs, or an extended div that can slide along...
 });
@@ -210,8 +208,8 @@ LAYOUTS.square = [
 //determine which style of grid to use, based on screen dimensions
 //1 - tall or wide: try for rows of 5 (anticipating 10 countables)
 //2 - not all that tall/wide: use a square grid whenever possible.
-const wideQuery = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 16/9)');
-const narrowQuery = window.matchMedia('(orientation: portrait) and (max-aspect-ratio: 9/16)');
+const wideQuery = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 2/1)');
+const narrowQuery = window.matchMedia('(orientation: portrait) and (max-aspect-ratio: 1/2)');
 const portraitQuery = window.matchMedia('(orientation: portrait)');
 const landscapeQuery = window.matchMedia('(orientation: landscape)');
 
@@ -295,4 +293,13 @@ function generateLayouts () {
       }
     }
   }
+}
+
+function resetAppleCount () {
+  let apples = document.getElementsByClassName('apple');
+  for (let i = 0, l = apples.length; i < l; i++) {
+    apples[i].classList.add('greyed');
+  }
+  counted = 0;
+  numberDisplay.innerText = counted;
 }
