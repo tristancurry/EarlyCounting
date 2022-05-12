@@ -140,8 +140,8 @@ body {
 
 @media (orientation: landscape) and (min-aspect-ratio: 2/1) {
   .countables-grid {
-    height: 95vh;
-    width: 120vh;
+    height: 95%;
+    width: 110vh;
     max-height: 100%;
   }
 
