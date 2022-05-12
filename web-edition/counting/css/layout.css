@@ -94,9 +94,7 @@ body {
   user-select: none;
 }
 
-.number-long {
-  font-size: 40vh;
-}
+
 
 .update {
   display:flex;
@@ -182,6 +180,10 @@ body {
   .number {
     height: 50vh;
     font-size: 50vh;
+  }
+
+  .number-long {
+    font-size: 40vh;
   }
 }
 
