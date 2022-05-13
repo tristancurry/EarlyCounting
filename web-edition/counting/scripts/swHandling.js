@@ -38,7 +38,9 @@
 			//add event listener on this button
 			updateButton.addEventListener('click', function(){
 				//instructions for the update process for the worker
+
 				worker.postMessage({action: 'skipWaiting'});
+
 			});
 		}
 

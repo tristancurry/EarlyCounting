@@ -128,14 +128,23 @@ body {
 }
 
 .update-content button {
-  border:none;
+  border:1px solid #3498DB;
   font-size: 1.15rem;
   font-weight: bold;
-  font-family: monospace;
+  font-family: sans-serif;
   color: #3498DB;
   background: none;
   padding: 0px 15px 0px 15px;
+  user-select: none;
+  transition: border-color 0.2s ease-in, color 0.1s ease-in;
 }
+
+.update-content button:hover {
+  border-color: #f3f3f3;
+  color: #f3f3f3;
+  transform: translateY(0.1vh);
+}
+
 .hide {
   opacity: 0;
 }
@@ -147,6 +156,11 @@ body {
 .dismiss-down {
   transform: translateY(100%);
   transition: transform 0.5s ease-in;
+}
+
+.dismiss-zoomout {
+  transform: scale(8);
+  opacity: 0;
 }
 
 

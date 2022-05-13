@@ -1,4 +1,4 @@
-let CACHE_NAME = 'counting-cache-t009';
+let CACHE_NAME = 'counting-cache-t00f';
 let urlsToCache = [
 	'index.html',
 	'manifest.json',
