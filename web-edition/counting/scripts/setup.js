@@ -1,5 +1,6 @@
 //setup.js
 const SCRIPT_PATH = 'scripts';
+const ASSET_PATH = 'assets';
 //simple scriptloader, thanks https://usefulangle.com/post/343/javascript-load-multiple-script-by-order
 let loadScript = (url) => {
   return new Promise ( (resolve, reject) => {
@@ -16,18 +17,41 @@ let loadScript = (url) => {
   });
 }
 
+let loadResource = (rsrc) => {
+  return new Promise ( (resolve, reject) => {
+    let resource = document.createElement(rsrc.resourceType);
+    resource.src = rsrc.url;
+    resource.async = false;
+    resource.onload = () => {
+      resolve(rsrc.url);
+    };
+    resource.onerror = () => {
+      reject(rsrc.url);
+    };
+  });
+}
+
 
 const scriptURLs = [
   `${SCRIPT_PATH}/app.js`,
   `${SCRIPT_PATH}/swHandling.js`
 ];
 
+const resources = [
+  {url:`${ASSET_PATH}/images/apple.png`, resourceType:`img`},
+  {url:`${ASSET_PATH}/audio/zero.wav`, resourceType:`audio`}
+]
+
 
 let promises = [];
 
+for (let i = 0, l = resources.length; i < l; i++) {
+  promises.push(loadResource(resources[i]));
+}
 for (let i = 0, l = scriptURLs.length - 1; i < l; i++) {
   promises.push(loadScript(scriptURLs[i]));
 }
+
 
 Promise.all(promises)
 .then( () => {
@@ -39,6 +63,6 @@ Promise.all(promises)
       console.log('main script not loaded');
     });
 })
-.catch ((script) => {
-  console.log(script + ' failed to load');
+.catch ((rsrc) => {
+  console.log(rsrc + ' failed to load');
 });
