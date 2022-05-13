@@ -45,17 +45,24 @@ prevButton.addEventListener('click', () => {
 
 
 const appleGrid = document.getElementsByClassName('countables-grid')[0];
+
+
+appleGrid.addEventListener('touchstart', (event) => {
+  event.preventDefault();
+  if(event.target.classList.contains('greyed')) {
+    event.target.classList.remove('greyed');
+    counted++;
+    numberDisplay.innerText = counted;
+  }
+});
+
 appleGrid.addEventListener('click', (event) => {
   if(event.target.classList.contains('greyed')) {
     event.target.classList.remove('greyed');
     counted++;
     numberDisplay.innerText = counted;
-    // window.speechSynthesis.cancel();
-    // let speech = new SpeechSynthesisUtterance(counted.toString());
-    // window.speechSynthesis.speak(speech);
   }
-
-})
+});
 
 for (let i = 0; i < N_MAX; i++) {
   let celly = document.createElement('div');
