@@ -31,16 +31,14 @@
 		}
 
 		updateReady = function(worker){
-
+			console.log('updateready');
 			document.getElementsByClassName('update')[0].classList.remove('dismiss-down');
 
 			let updateButton = document.getElementById('updateBtn');
 			//add event listener on this button
 			updateButton.addEventListener('click', function(){
 				//instructions for the update process for the worker
-
 				worker.postMessage({action: 'skipWaiting'});
-
 			});
 		}
 

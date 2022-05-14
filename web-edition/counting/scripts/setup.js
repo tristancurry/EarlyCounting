@@ -21,6 +21,7 @@ let loadResource = (rsrc) => {
   return new Promise ( (resolve, reject) => {
     let resource = document.createElement(rsrc.resourceType);
     resource.src = rsrc.url;
+    console.log(rsrc);
     resource.async = false;
     resource.onload = () => {
       resolve(rsrc.url);
@@ -33,14 +34,14 @@ let loadResource = (rsrc) => {
 
 
 const scriptURLs = [
-  `${SCRIPT_PATH}/app.js`,
-  `${SCRIPT_PATH}/swHandling.js`
+  `${SCRIPT_PATH}/swHandling.js`,
+  `${SCRIPT_PATH}/app.js`
 ];
 
 const resources = [
-  {url:`${ASSET_PATH}/images/apple.png`, resourceType:`img`},
-  {url:`${ASSET_PATH}/audio/zero.wav`, resourceType:`audio`}
-]
+  {url:`${ASSET_PATH}/images/apple.png`, resourceType:`img`}
+  // {url:`${ASSET_PATH}/audio/zero.wav`, resourceType:`audio`}
+];
 
 
 let promises = [];
@@ -52,6 +53,7 @@ for (let i = 0, l = scriptURLs.length - 1; i < l; i++) {
   promises.push(loadScript(scriptURLs[i]));
 }
 
+console.log(promises);
 
 Promise.all(promises)
 .then( () => {
