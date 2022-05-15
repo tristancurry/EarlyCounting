@@ -47,7 +47,7 @@ body {
 
 
 .word-apple {
-  animation: pulse 1.5s infinite ease-in-out;
+  animation: pulse 0.5s infinite ease-in-out;
   animation-direction: alternate-reverse;
 }
 
