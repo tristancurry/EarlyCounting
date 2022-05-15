@@ -21,18 +21,20 @@ let loadResource = (rsrc) => {
   return new Promise ( (resolve, reject) => {
     console.log(rsrc);
     let resource;
-    if(rsrc.type === 'image') {
+    if(rsrc.resourceType === 'image') {
       resource = new Image();
-    } else if (rsrc.type === 'audio') {
+    } else if (rsrc.resourceType === 'audio') {
       resource = new Audio();
     }
     resource.src = rsrc.url;
     resource.async = false;
-    if(rsrc.type === 'audio') {
+    if(rsrc.resourceType === 'audio') {
       resource.addEventListener('canplaythrough', resolve(rsrc.url), false);
+      loadedAssets.push(resource);
     } else {
       resource.onload = () => {
         resolve(rsrc.url);
+        loadedAssets.push(resource);
       };
     }
     resource.onerror = () => {
@@ -48,8 +50,8 @@ const scriptURLs = [
 ];
 
 const resources = [
-  {url:`${ASSET_PATH}/images/apple.png`, resourceType:`image`}
-  {url:`${ASSET_PATH}/audio/zero.wav`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/images/apple.png`, resourceType:`image`},
+  {url:`${ASSET_PATH}/audio/zero.wav`, resourceType:`audio`}
 ];
 
 
@@ -73,6 +75,8 @@ Promise.all(promises)
 .then( () => {
     loadScript(scriptURLs[scriptURLs.length - 1])
     .then( () => {
+      document.getElementsByClassName('loading')[0].classList.add('hide');
+      setTimeout(() => document.getElementsByClassName('loading')[0].classList.add('nodisplay'), 1000);
       console.log('all scripts loaded');
     })
     .catch( () => {
