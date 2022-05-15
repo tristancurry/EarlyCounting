@@ -31,14 +31,24 @@ body {
 }
 
 .loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0);
+  box-shadow: 0 0 30px inset white;
   transition: opacity 0.25s ease-in;
   z-index: 3;
+}
+
+
+.word-apple {
+  animation: pulse 1.5s infinite ease-in-out;
+  animation-direction: alternate-reverse;
 }
 
 .countables {
@@ -174,6 +184,11 @@ body {
   opacity: 0;
 }
 
+@keyframes pulse {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
 
 @media (orientation: landscape) {
   .main {
@@ -209,6 +224,10 @@ body {
 
   .number-long {
     font-size: 40vh;
+  }
+
+  .loading svg {
+    max-width: 30vw;
   }
 }
 
