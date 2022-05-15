@@ -51,7 +51,16 @@ const scriptURLs = [
 
 const resources = [
   {url:`${ASSET_PATH}/images/apple.png`, resourceType:`image`},
-  {url:`${ASSET_PATH}/audio/zero.wav`, resourceType:`audio`}
+  {url:`${ASSET_PATH}/audio/zero.wav`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/one.wav`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/two.wav`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/three.wav`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/four.wav`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/five.wav`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/six.wav`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/seven.wav`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/eight.wav`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/nine.wav`, resourceType:`audio`}
 ];
 
 
