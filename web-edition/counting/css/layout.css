@@ -281,6 +281,10 @@ body {
     font-size: 40vw;
   }
 
+  .loading svg {
+    max-width: 60vw;
+  }
+
   .prev {
     order: 1;
   }
