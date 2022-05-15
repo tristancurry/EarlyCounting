@@ -19,13 +19,22 @@ let loadScript = (url) => {
 
 let loadResource = (rsrc) => {
   return new Promise ( (resolve, reject) => {
-    let resource = document.createElement(rsrc.resourceType);
-    resource.src = rsrc.url;
     console.log(rsrc);
+    let resource;
+    if(rsrc.type === 'image') {
+      resource = new Image();
+    } else if (rsrc.type === 'audio') {
+      resource = new Audio();
+    }
+    resource.src = rsrc.url;
     resource.async = false;
-    resource.onload = () => {
-      resolve(rsrc.url);
-    };
+    if(rsrc.type === 'audio') {
+      resource.addEventListener('canplaythrough', resolve(rsrc.url), false);
+    } else {
+      resource.onload = () => {
+        resolve(rsrc.url);
+      };
+    }
     resource.onerror = () => {
       reject(rsrc.url);
     };
@@ -39,9 +48,14 @@ const scriptURLs = [
 ];
 
 const resources = [
-  {url:`${ASSET_PATH}/images/apple.png`, resourceType:`img`}
-  // {url:`${ASSET_PATH}/audio/zero.wav`, resourceType:`audio`}
+  {url:`${ASSET_PATH}/images/apple.png`, resourceType:`image`}
+  {url:`${ASSET_PATH}/audio/zero.wav`, resourceType:`audio`},
 ];
+
+
+const loadedAssets = [
+
+]
 
 
 let promises = [];
