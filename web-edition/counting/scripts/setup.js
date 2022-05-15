@@ -19,7 +19,6 @@ let loadScript = (url) => {
 
 let loadResource = (rsrc) => {
   return new Promise ( (resolve, reject) => {
-    console.log(rsrc);
     let resource;
     if(rsrc.resourceType === 'image') {
       resource = new Image();
@@ -77,8 +76,6 @@ for (let i = 0, l = resources.length; i < l; i++) {
 for (let i = 0, l = scriptURLs.length - 1; i < l; i++) {
   promises.push(loadScript(scriptURLs[i]));
 }
-
-console.log(promises);
 
 Promise.all(promises)
 .then( () => {

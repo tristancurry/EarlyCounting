@@ -36,9 +36,9 @@ body {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 4;
   background-color: rgba(0,0,0,0.7);
   transition: opacity 0.25s ease-in;
+  z-index: 3;
 }
 
 .countables {
@@ -112,7 +112,6 @@ body {
   justify-content: center;
   position:fixed;
   bottom: 0;
-  z-index:3;
   width:30rem;
   height:6rem;
   border-top-left-radius: 1rem;
@@ -122,6 +121,7 @@ body {
   overflow:hidden;
   will-change: transform;
   transition: transform 1s ease-out;
+  z-index:4;
 }
 
 .update-content {
