@@ -70,9 +70,9 @@ for (let i = 0; i < N_MAX; i++) {
   appleGrid.appendChild(celly);
 
   let markup = `
-  <div class="apple greyed">
+  <button class="apple greyed">
     <img src="${IMAGE_PATH}"/>
-  </div>
+  </button>
   <div class="spacer nodisplay">
   </div>
   `;
