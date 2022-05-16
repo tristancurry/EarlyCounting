@@ -1,10 +1,11 @@
-let CACHE_NAME = 'counting-cache-t00Y';
+let CACHE_NAME = 'counting-cache-t00Z';
 let urlsToCache = [
 	'index.html',
 	'manifest.json',
 	'css/styles.css',
 	'css/layout.css',
 	'assets/images/apple.png',
+	'assets/images/favicon.png',
 	'assets/audio/zero.mp3',
 	'assets/audio/one.mp3',
 	'assets/audio/two.mp3',

@@ -1,13 +1,13 @@
 @media (hover: hover) {
   .cell:active {
     transform: scaleY(0.95) scaleX(1.05);
-    transition: transform 0.05s ease-in;
+    transition: transform 0.1s ease-in;
   }
 }
 
 .activated {
   transform: scaleY(0.95) scaleX(1.05);
-  transition: transform 0.05s ease-in;
+  transition: transform 0.1s ease-in;
 }
 
 .greyed {
