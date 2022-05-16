@@ -132,7 +132,7 @@ body {
   background-color: rgba(0,0,0,0.9);
   overflow:hidden;
   will-change: transform;
-  transition: transform 1s ease-out;
+  transition: transform 0.5s ease-out;
   z-index:4;
 }
 
@@ -159,7 +159,7 @@ body {
   background: none;
   padding: 0px 15px 0px 15px;
   user-select: none;
-  transition: border-color 0.2s ease-in, color 0.1s ease-in;
+  transition: border-color 0.1s ease-in, color 0.1s ease-in;
 }
 
 .update-content button:hover {
@@ -222,6 +222,7 @@ body {
   .number {
     height: 50vh;
     font-size: 50vh;
+    line-height: 51vh;
   }
 
   .number-long {
@@ -281,6 +282,8 @@ body {
 
   .number-long {
     font-size: 40vw;
+    line-height: 41vw;
+
   }
 
   .loading svg {

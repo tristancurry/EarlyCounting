@@ -48,7 +48,6 @@ const appleGrid = document.getElementsByClassName('countables-grid')[0];
 
 
 appleGrid.addEventListener('touchstart', (event) => {
-  event.preventDefault();
   if(event.target.classList.contains('greyed')) {
     event.target.classList.remove('greyed');
     counted++;
