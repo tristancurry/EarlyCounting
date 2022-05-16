@@ -53,9 +53,18 @@ appleGrid.addEventListener('touchstart', (event) => {
     counted++;
     numberDisplay.innerText = counted;
   }
+  if(event.target.classList.contains('apple')) {
+    event.target.classList.add('activated');
+  }
 });
 
-appleGrid.addEventListener('click', (event) => {
+appleGrid.addEventListener('touchend', (event) => {
+  if(event.target.classList.contains('apple')) {
+    event.target.classList.remove('activated');
+  }
+});
+
+appleGrid.addEventListener('mousedown', (event) => {
   if(event.target.classList.contains('greyed')) {
     event.target.classList.remove('greyed');
     counted++;
