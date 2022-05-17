@@ -12,7 +12,10 @@ const GRID_DIMENSIONS = {
 };
 
 const nextButton = document.getElementsByClassName('next')[0];
+nextButton.insertAdjacentHTML('beforeend', nextButtonMarkup);
 const prevButton = document.getElementsByClassName('prev')[0];
+prevButton.insertAdjacentHTML('beforeend', prevButtonMarkup);
+
 const numberDisplay = document.getElementsByClassName('number')[0];
 
 nextButton.addEventListener('click', () => {

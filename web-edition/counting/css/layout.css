@@ -72,6 +72,26 @@ body {
   justify-content: center;
 }
 
+.navigation {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.navigation button {
+  overflow: hidden;
+  padding: 0;
+  border: none;
+}
+
+.navigation svg {
+  height: 100%;
+  max-width: 100%;
+}
+
 .cell {
   display: flex;
   justify-content: center;
@@ -220,6 +240,10 @@ body {
     flex-direction: column;
   }
 
+  .navigation {
+    height: calc(100% - 50vh);
+  }
+
   .number {
     height: 50vh;
     font-size: 50vh;
@@ -260,7 +284,7 @@ body {
   }
 
   .control {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     height: 30%;
     /* min-height: 10rem; */
@@ -284,11 +308,10 @@ body {
   .number-long {
     font-size: 40vw;
     line-height: 41vw;
-
   }
 
-  .loading svg {
-    max-width: 60vw;
+  .navigation {
+    height: calc(100% - 40vw);
   }
 
   .prev {
@@ -296,8 +319,14 @@ body {
   }
 
   .next {
-    order: 3;
+    order: 2;
   }
+
+  .loading svg {
+    max-width: 60vw;
+  }
+
+
 }
 
 @media (orientation: portrait) and (max-aspect-ratio: 1/2) {
