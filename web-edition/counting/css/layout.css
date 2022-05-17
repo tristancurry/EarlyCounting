@@ -84,7 +84,6 @@ body {
 .navigation button {
   overflow: hidden;
   padding: 0;
-  /* border: none; */
 }
 
 .navigation svg {
@@ -307,6 +306,7 @@ body {
 @media (orientation: portrait) {
   .main {
     flex-direction: column;
+    height: 100%;
   }
 
   .countables {
@@ -333,8 +333,9 @@ body {
 
   .number {
     order: 2;
-    font-size: 40vw;
-    height: 40vw;
+    font-size: 30vw;
+    line-height: 30vw;
+    height: 70%;
   }
 
   .number-long {
@@ -343,7 +344,11 @@ body {
   }
 
   .navigation {
-    height: calc(100% - 40vw);
+    height: 30%;
+  }
+
+  .navigation button {
+    width: 30%;
   }
 
   .navigation svg {
@@ -368,7 +373,9 @@ body {
 
 @media (orientation: portrait) and (max-aspect-ratio: 1/2) {
 
-  .countables-grid {
+  .number{
+    font-size: 50vw;
+    line-height: 50vw;
   }
 
 }
