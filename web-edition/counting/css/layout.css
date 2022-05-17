@@ -84,7 +84,7 @@ body {
 .navigation button {
   overflow: hidden;
   padding: 0;
-  border: none;
+  /* border: none; */
 }
 
 .navigation svg {
@@ -138,7 +138,36 @@ body {
   user-select: none;
 }
 
+.word-apple-leaf {
+  transform-box: fill-box;
+  transform-origin: right center;
+  transform: rotate(0deg);
+}
 
+.leaf-P1 {
+  transform: rotate(70deg);
+}
+
+.leaf-P2 {
+  transform: rotate(120deg);
+}
+
+.leaf-V {
+  transform: rotate(35deg);
+}
+
+
+.leaf-N {
+  transform: rotate(45deg);
+}
+
+.leaf-T1 {
+  transform: rotate(100deg);
+}
+
+.leaf-T2 {
+  transform: rotate(145deg);
+}
 
 .update {
   display:flex;
@@ -244,6 +273,8 @@ body {
     height: calc(100% - 50vh);
   }
 
+
+
   .number {
     height: 50vh;
     font-size: 50vh;
@@ -292,7 +323,7 @@ body {
   }
 
   .countables-grid {
-    max-width: 75vw;
+    max-width: 90vw;
   }
 
   .apple img {
@@ -303,6 +334,7 @@ body {
   .number {
     order: 2;
     font-size: 40vw;
+    height: 40vw;
   }
 
   .number-long {
@@ -312,6 +344,11 @@ body {
 
   .navigation {
     height: calc(100% - 40vw);
+  }
+
+  .navigation svg {
+      max-width: 90%;
+      height: auto;
   }
 
   .prev {
