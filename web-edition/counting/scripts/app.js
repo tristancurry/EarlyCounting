@@ -11,6 +11,9 @@ const GRID_DIMENSIONS = {
   square: []
 };
 
+let sound_on = true;
+let countdown = true;
+
 const nextButton = document.getElementsByClassName('next')[0];
 nextButton.insertAdjacentHTML('beforeend', nextButtonMarkup);
 const prevButton = document.getElementsByClassName('prev')[0];
@@ -51,11 +54,7 @@ const appleGrid = document.getElementsByClassName('countables-grid')[0];
 
 
 appleGrid.addEventListener('touchstart', (event) => {
-  if(event.target.classList.contains('greyed')) {
-    event.target.classList.remove('greyed');
-    counted++;
-    numberDisplay.innerText = counted;
-  }
+  handleAppleCount();
   if(event.target.classList.contains('apple')) {
     event.target.classList.add('activated');
   }
@@ -68,11 +67,7 @@ appleGrid.addEventListener('touchend', (event) => {
 });
 
 appleGrid.addEventListener('mousedown', (event) => {
-  if(event.target.classList.contains('greyed')) {
-    event.target.classList.remove('greyed');
-    counted++;
-    numberDisplay.innerText = counted;
-  }
+  handleAppleCount();
 });
 
 for (let i = 0; i < N_MAX; i++) {
@@ -316,6 +311,22 @@ function generateLayouts () {
   }
 }
 
+function handleAppleCount () {
+  //increment count
+  //handle class changes
+  //play audio
+  if(event.target.classList.contains('greyed')) {
+    event.target.classList.remove('greyed');
+    counted++;
+    playNumberSound(counted);
+  } else if (countdown == true && event.target.classList.contains('apple')) {
+    event.target.classList.add('greyed');
+    counted--;
+    playNumberSound(counted);
+  }
+  numberDisplay.innerText = counted;
+}
+
 function resetAppleCount () {
   let apples = document.getElementsByClassName('apple');
   for (let i = 0, l = apples.length; i < l; i++) {
@@ -323,4 +334,10 @@ function resetAppleCount () {
   }
   counted = 0;
   numberDisplay.innerText = counted;
+}
+
+function playNumberSound (number) {
+  if (sound_on == true && number < loadedSounds.length) {
+    loadedSounds[number].play();
+  }
 }
