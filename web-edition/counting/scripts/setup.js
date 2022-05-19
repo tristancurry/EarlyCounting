@@ -29,11 +29,11 @@ let loadResource = (rsrc) => {
     resource.async = false;
     if(rsrc.resourceType === 'audio') {
       resource.addEventListener('canplaythrough', resolve(rsrc.url), false);
-      loadedAssets.push(resource);
+      loadedSounds.push(resource);
     } else {
       resource.onload = () => {
         resolve(rsrc.url);
-        loadedAssets.push(resource);
+        loadedImages.push(resource);
       };
     }
     resource.onerror = () => {
@@ -50,22 +50,21 @@ const scriptURLs = [
 
 const resources = [
   {url:`${ASSET_PATH}/images/apple.png`, resourceType:`image`},
-  {url:`${ASSET_PATH}/audio/zero.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/one.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/two.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/three.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/four.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/five.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/six.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/seven.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/eight.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/nine.mp3`, resourceType:`audio`}
+  {url:`${ASSET_PATH}/audio/voice_000.mp3`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/voice_001.mp3`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/voice_002.mp3`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/voice_003.mp3`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/voice_004.mp3`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/voice_005.mp3`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/voice_006.mp3`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/voice_007.mp3`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/voice_008.mp3`, resourceType:`audio`},
+  {url:`${ASSET_PATH}/audio/voice_009.mp3`, resourceType:`audio`}
 ];
 
 
-const loadedAssets = [
-
-]
+const loadedSounds = [];
+const loadedImages = [];
 
 
 let promises = [];
