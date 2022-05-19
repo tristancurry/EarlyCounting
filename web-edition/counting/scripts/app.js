@@ -55,6 +55,7 @@ const navigation = document.getElementsByClassName('navigation')[0];
 
 
 appleGrid.addEventListener('touchstart', (event) => {
+  event.preventDefault();
   handleAppleCount();
   if(event.target.classList.contains('apple')) {
     event.target.classList.add('activated');
