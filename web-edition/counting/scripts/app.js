@@ -51,6 +51,7 @@ prevButton.addEventListener('click', () => {
 
 
 const appleGrid = document.getElementsByClassName('countables-grid')[0];
+const navigation = document.getElementsByClassName('navigation')[0];
 
 
 appleGrid.addEventListener('touchstart', (event) => {
@@ -69,6 +70,9 @@ appleGrid.addEventListener('touchend', (event) => {
 appleGrid.addEventListener('mousedown', (event) => {
   handleAppleCount();
 });
+
+
+
 
 for (let i = 0; i < N_MAX; i++) {
   let celly = document.createElement('div');

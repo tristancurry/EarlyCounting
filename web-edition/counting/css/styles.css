@@ -4,8 +4,16 @@
     transition: transform 0.1s ease-in;
   }
 
+  .navigation button:hover .sign {
+    fill: rgb(255, 200, 200);
+  }
 
+  .navigation button:active .sign {
+    fill: rgb(155, 100, 100);
+
+  }
 }
+
 
 .activated {
   transform: scaleY(0.95) scaleX(1.05);
@@ -41,9 +49,11 @@ button {
 
 
   .sign {
+    pointer-events: none;
     stroke: none;
     fill: rgba(200, 200, 255, 1);
   }
 
-  .navigation button {
+  .nav-activated {
+    fill: rgb(155, 100, 100);
   }
