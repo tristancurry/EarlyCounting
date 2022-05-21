@@ -12,7 +12,7 @@ const GRID_DIMENSIONS = {
 };
 
 let sound_on = true;
-let countdown = true;
+let countdown = false;
 
 const nextButton = document.getElementsByClassName('next')[0];
 nextButton.insertAdjacentHTML('beforeend', nextButtonMarkup);
