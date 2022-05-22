@@ -33,7 +33,7 @@ let loadResource = (rsrc) => {
     } else {
       resource.onload = () => {
         resolve(rsrc.url);
-        loadedImages.push(resource);
+        loadedImages[rsrc.val] = resource;
       };
     }
     resource.onerror = () => {
@@ -50,16 +50,16 @@ const scriptURLs = [
 
 const resources = [
   {url:`${ASSET_PATH}/images/apple.png`, resourceType:`image`},
-  {url:`${ASSET_PATH}/audio/voice_000.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/voice_001.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/voice_002.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/voice_003.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/voice_004.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/voice_005.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/voice_006.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/voice_007.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/voice_008.mp3`, resourceType:`audio`},
-  {url:`${ASSET_PATH}/audio/voice_009.mp3`, resourceType:`audio`}
+  {url:`${ASSET_PATH}/audio/voice_000.mp3`, resourceType:`audio`, val: 0},
+  {url:`${ASSET_PATH}/audio/voice_001.mp3`, resourceType:`audio`, val: 1},
+  {url:`${ASSET_PATH}/audio/voice_002.mp3`, resourceType:`audio`, val: 2},
+  {url:`${ASSET_PATH}/audio/voice_003.mp3`, resourceType:`audio`, val: 3},
+  {url:`${ASSET_PATH}/audio/voice_004.mp3`, resourceType:`audio`, val: 4},
+  {url:`${ASSET_PATH}/audio/voice_005.mp3`, resourceType:`audio`, val: 5},
+  {url:`${ASSET_PATH}/audio/voice_006.mp3`, resourceType:`audio`, val: 6},
+  {url:`${ASSET_PATH}/audio/voice_007.mp3`, resourceType:`audio`, val: 7},
+  {url:`${ASSET_PATH}/audio/voice_008.mp3`, resourceType:`audio`, val: 8},
+  {url:`${ASSET_PATH}/audio/voice_009.mp3`, resourceType:`audio`, val: 9}
 ];
 
 

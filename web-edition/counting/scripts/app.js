@@ -1,6 +1,6 @@
 const N_MAX = 16; // highest number expected
 const IMAGE_PATH = 'assets/images/apple.png';
-let N = 7;
+let N = 1;
 let counted = 0;
 if(N > N_MAX) {
   N = N_MAX;
