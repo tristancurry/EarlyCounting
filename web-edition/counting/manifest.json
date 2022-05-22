@@ -4,7 +4,7 @@
 	"display": "standalone",
 	"scope": "../counting/",
 	"start_url": "./index.html",
-	"theme_color": "#8900bf",
+	"theme_color": "#FF0000",
 	"background_color": "#444444",
 	"icons": [
 		{
