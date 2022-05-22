@@ -52,7 +52,7 @@ prevButton.addEventListener('click', () => {
 
 soundToggle.addEventListener ('click', () => {
   sound_on = !sound_on;
-})
+});
 
 
 
