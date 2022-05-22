@@ -18,6 +18,8 @@ const nextButton = document.getElementsByClassName('next')[0];
 nextButton.insertAdjacentHTML('beforeend', nextButtonMarkup);
 const prevButton = document.getElementsByClassName('prev')[0];
 prevButton.insertAdjacentHTML('beforeend', prevButtonMarkup);
+const soundToggle = document.getElementsByClassName('soundtoggle')[0];
+const optionsButton = document.getElementsByClassName('options')[0];
 
 const numberDisplay = document.getElementsByClassName('number')[0];
 
@@ -48,10 +50,15 @@ prevButton.addEventListener('click', () => {
   //some extra divs, or an extended div that can slide along...
 });
 
+soundToggle.addEventListener ('click', () => {
+  sound_on = !sound_on;
+})
+
 
 
 const appleGrid = document.getElementsByClassName('countables-grid')[0];
 const navigation = document.getElementsByClassName('navigation')[0];
+
 
 
 appleGrid.addEventListener('touchstart', (event) => {
