@@ -1,3 +1,10 @@
+:root {
+  --buttonBg: rgba(200, 200, 255, 1);
+  --buttonBgDark: rgba(155, 200, 255, 1);
+}
+
+
+
 @media (hover: hover) {
   .cell:active {
     transform: scaleY(0.95) scaleX(1.05);
@@ -55,4 +62,21 @@ button {
 
   .nav-activated {
     fill: rgb(155, 100, 100);
+  }
+
+  .speakercone {
+    fill: var(--buttonBg);
+    stroke: var(--buttonBg);
+    stroke-width: 10px;
+  }
+
+  .soundwaves {
+    stroke-width:  15px;
+    stroke: var(--buttonBg);
+  }
+
+  .nope {
+    fill: var(--buttonBg);
+    stroke-width: 20px;
+    transition: opacity 0.25s ease-out;
   }

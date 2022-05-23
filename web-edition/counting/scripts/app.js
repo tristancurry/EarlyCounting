@@ -16,9 +16,12 @@ let countdown = false;
 
 const nextButton = document.getElementsByClassName('next')[0];
 nextButton.insertAdjacentHTML('beforeend', nextButtonMarkup);
+
 const prevButton = document.getElementsByClassName('prev')[0];
 prevButton.insertAdjacentHTML('beforeend', prevButtonMarkup);
+
 const soundToggle = document.getElementsByClassName('soundtoggle')[0];
+soundToggle.insertAdjacentHTML('beforeend', soundButtonMarkup);
 const optionsButton = document.getElementsByClassName('options')[0];
 
 const numberDisplay = document.getElementsByClassName('number')[0];
@@ -52,6 +55,7 @@ prevButton.addEventListener('click', () => {
 
 soundToggle.addEventListener ('click', () => {
   sound_on = !sound_on;
+  document.getElementsByClassName('nope')[0].classList.toggle('hide');
 });
 
 

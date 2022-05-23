@@ -93,7 +93,7 @@ Promise.all(promises)
 });
 
 const prevButtonMarkup = `
-<svg width="975" height="485" version="1.1" viewBox="0 0 975 485" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg version="1.1" viewBox="0 0 975 485" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
  <path class="sign" d="m193.11 7.9534h776.94v471.82h-776.94l-187.16-235.91z" fill="none" opacity=".995" stroke="#000" stroke-linejoin="round" stroke-width="7.9068"/>
  <g transform="translate(55.903 -10.328)">
   <g transform="translate(-112.9,-114.41)">
@@ -119,7 +119,7 @@ const prevButtonMarkup = `
 
 
 const nextButtonMarkup = `
-<svg width="975" height="485" version="1.1" viewBox="0 0 975 485" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg version="1.1" viewBox="0 0 975 485" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
  <path class="sign" d="m782.89 479.78h-776.94v-471.82h776.94l187.16 235.91z" fill="none" opacity=".995" stroke="#000" stroke-linejoin="round" stroke-width="7.9068"/>
  <g transform="translate(-64.895 -37.708)">
   <g transform="translate(-112.9,-114.41)">
@@ -142,3 +142,15 @@ const nextButtonMarkup = `
  </g>
 </svg>
 `;
+
+const soundButtonMarkup = `
+<svg version="1.1" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+ <path class="speakercone" d="m162.84 51.342-76.463 44.805h-42.11c-8.8653 0-8.8653 0-8.8653 8.8662v91.986c0 8.8662 0 8.8662 8.8653 8.8662h42.11l76.463 44.807c6.649 4.4331 6.649 4.4331 6.649-4.4331v-190.46c0-8.8662 0-8.8662-6.649-4.4331z" stroke="#000" stroke-linejoin="round" stroke-width="10"/>
+ <g class="soundwaves" transform="matrix(1.1082 0 0 1.1083 -43.907 -22.597)" fill-opacity="0" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="9.0235">
+  <path d="m232.69 77.632a101.79 105.36 0 0 1 34.452 78.551 101.79 105.36 0 0 1-33.788 78.859" opacity=".995"/>
+  <path d="m217.88 101.83a78.929 81.702 0 0 1 0.48018 109.08" opacity=".995"/>
+  <path d="m246.27 53.639a124.56 128.93 0 0 1 49.644 102.2 124.56 128.93 0 0 1-48.411 102.83" opacity=".995"/>
+ </g>
+ <path class="nope hide" d="m19.474 19.598a5.5408 5.5414 0 0 0-3.8937 1.6234 5.5408 5.5414 0 0 0 0 7.8358l122.14 122.15-122.14 122.15a5.5408 5.5414 0 0 0 0 7.8358 5.5408 5.5414 0 0 0 7.835 0l122.14-122.15 122.14 122.15a5.5408 5.5414 0 0 0 7.835 0 5.5408 5.5414 0 0 0 0-7.8358l-122.14-122.15 122.14-122.15a5.5408 5.5414 0 0 0 0-7.8358 5.5408 5.5414 0 0 0-3.9413-1.6234 5.5408 5.5414 0 0 0-3.8937 1.6234l-122.14 122.15-122.14-122.15a5.5408 5.5414 0 0 0-3.9413-1.6234z" color="#000000" color-rendering="auto" dominant-baseline="auto" image-rendering="auto" shape-rendering="auto" solid-color="#000000" stop-color="#000000" stroke="#fff" stroke-linecap="round" stroke-width="10" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;inline-size:0;isolation:auto;mix-blend-mode:normal;paint-order:markers stroke fill;shape-margin:0;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+</svg>`;

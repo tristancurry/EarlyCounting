@@ -73,6 +73,17 @@ body {
   justify-content: center;
 }
 
+.buttons {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
 .navigation {
   display: flex;
   position: relative;
@@ -82,14 +93,30 @@ body {
   overflow: hidden;
 }
 
+.option-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  overflow: hidden;
+  bottom: 0;
+}
+
 .navigation button {
   overflow: hidden;
   padding: 0;
 }
 
+.option-button {
+}
+
+.option-button svg {
+  height: 100%;
+  width: 100%;
+}
+
 .navigation svg {
   height: 100%;
-  max-width: 100%;
+  width: 100%;
 }
 
 .cell {
@@ -288,7 +315,11 @@ body {
   }
 
   .navigation {
-    height: calc(100% - 50vh);
+    height: 80%;
+  }
+
+  .option-buttons {
+    height: 20%;
   }
 
 
@@ -334,14 +365,14 @@ body {
   }
 
   .countables {
-    height: 70%;
+    height: 60%;
     order: 2;
   }
 
   .control {
     flex-direction: column;
     justify-content: center;
-    height: 30%;
+    height: 40%;
     /* min-height: 10rem; */
     order: 1;
   }
@@ -367,18 +398,25 @@ body {
     line-height: 25vh;
   }
 
-  .navigation {
-    height: 30%;
+  .buttons {
+    height: 100%;
   }
+
+  .navigation {
+    order: 2;
+    height: 60%;
+  }
+
+  .option-buttons {
+    order: 1;
+    height: 40%;
+  }
+
 
   .navigation button {
-    width: 30%;
+    height: 100%;
   }
 
-  .navigation svg {
-      max-width: 90%;
-      height: auto;
-  }
 
   .prev {
     order: 1;
