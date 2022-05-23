@@ -1,5 +1,6 @@
 :root {
   --buttonBg: rgba(200, 200, 255, 1);
+  --buttonBgAlt: rgba(255, 200, 200, 1);
   --buttonBgDark: rgba(155, 200, 255, 1);
 }
 
@@ -11,13 +12,29 @@
     transition: transform 0.1s ease-in;
   }
 
-  .navigation button:hover .sign {
-    fill: rgb(255, 200, 200);
+  .navigation button:hover .sign, .option-buttons button:hover path {
+    fill: var(--buttonBgDark);
   }
 
-  .navigation button:active .sign {
-    fill: rgb(155, 100, 100);
+  .navigation button:active .sign, .option-buttons button:active path {
+    fill: var(--buttonBgAlt);
 
+  }
+
+  .option-buttons button:hover .soundwaves, .option-buttons button:hover .speakercone {
+    stroke: var(--buttonBgDark);
+  }
+
+  .option-buttons button:active .soundwaves, .option-buttons button:active .speakercone {
+    stroke: var(--buttonBgAlt);
+  }
+
+  .option-buttons button:hover {
+      color: var(--buttonBgDark);
+  }
+
+  .option-buttons button:active {
+      color: var(--buttonBgAlt);
   }
 }
 
@@ -28,7 +45,7 @@
 }
 
 .greyed {
-  filter: saturate(0) brightness(1.5);
+  filter: saturate(0) brightness(1.75) opacity(0.9);
 }
 
 button {
@@ -78,5 +95,10 @@ button {
   .nope {
     fill: var(--buttonBg);
     stroke-width: 20px;
-    transition: opacity 0.25s ease-out;
+  }
+
+  .options {
+    font-size: 8vh;
+    font-weight: bold;
+    color: var(--buttonBg);
   }
