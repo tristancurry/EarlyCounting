@@ -353,7 +353,7 @@ function resetAppleCount () {
 }
 
 function playNumberSound (number) {
-  if (sound_on == true && number < loadedSounds.length) {
+  if (sound_on == true && loadedSounds[number]) {
     loadedSounds[number].play();
   }
 }
