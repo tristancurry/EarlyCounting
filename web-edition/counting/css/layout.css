@@ -249,6 +249,24 @@ body {
   transform: translateY(0.1vh);
 }
 
+.options-background {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.options-window {
+  position: fixed;
+  height: calc(80% - 2vh);
+  width: calc(80% - 2vh);
+  background: white;
+  border-radius: 2vh;
+  border: 1px solid black;
+}
+
 .hide {
   opacity: 0;
 }
