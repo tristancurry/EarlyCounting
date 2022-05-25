@@ -14,6 +14,17 @@ const GRID_DIMENSIONS = {
 let sound_on = true;
 let countdown = false;
 
+const main = document.getElementsByClassName('main')[0];
+
+
+const logo = document.getElementsByClassName('logo')[0];
+logo.insertAdjacentHTML('beforeend', aboutLogoMarkup);
+
+
+const optionsBackground = document.getElementsByClassName('options-background')[0];
+
+
+
 const nextButton = document.getElementsByClassName('next')[0];
 nextButton.insertAdjacentHTML('beforeend', nextButtonMarkup);
 
@@ -25,6 +36,24 @@ soundToggle.insertAdjacentHTML('beforeend', soundButtonMarkup);
 const optionsButton = document.getElementsByClassName('options')[0];
 
 const numberDisplay = document.getElementsByClassName('number')[0];
+
+
+optionsButton.addEventListener('click', () => {
+  optionsBackground.classList.remove('nodisplay');
+  setTimeout(() => {
+    optionsBackground.getElementsByClassName('options-window')[0].classList.remove('zoom-bottom-right');
+  }, 0);
+});
+
+optionsBackground.addEventListener('click', (event) => {
+  let target = event.target;
+  if(event.target == optionsBackground || event.target == optionsBackground.getElementsByClassName('closebox')[0]) {
+    optionsBackground.getElementsByClassName('options-window')[0].classList.add('zoom-bottom-right');
+    setTimeout(() => {
+      optionsBackground.classList.add('nodisplay');
+    }, 100);
+  }
+});
 
 nextButton.addEventListener('click', () => {
   if(N < N_MAX) {

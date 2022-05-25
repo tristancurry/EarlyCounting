@@ -36,6 +36,17 @@
   .option-buttons button:active {
       color: var(--buttonBgAlt);
   }
+
+  .closebox-container div:hover {
+    border-width: 2px;
+    border-color: grey;
+  }
+
+  .closebox-container div:active {
+    background-color: black;
+    border-width: unset;
+
+  }
 }
 
 

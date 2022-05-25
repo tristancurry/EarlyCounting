@@ -3,6 +3,11 @@
   /* box-sizing: content-box; */
 }
 
+@font-face {
+	font-family: oldMac;
+	src: url(ChicagoFLF.ttf);
+}
+
 :root {
   font-family: sans-serif;
   font-size: 3vw;
@@ -260,11 +265,76 @@ body {
 
 .options-window {
   position: fixed;
-  height: calc(80% - 2vh);
-  width: calc(80% - 2vh);
+  height: calc(100% - 10vh);
+  width: calc(100% - 10vh);
   background: white;
-  border-radius: 2vh;
   border: 1px solid black;
+  transform-origin: bottom right;
+  transition: transform 0.1s ease-in;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.7);
+}
+
+.titlebar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 14pt;
+  height: 1.5em;
+  background-color: white;
+  border-bottom: 1px solid black;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.7);
+}
+
+.titlebar-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 1vw);
+  height: 1em;
+  font-size: 1em;
+  line-height: 1em;
+  background-image: linear-gradient(0deg, #ffffff 16.67%, #000000 16.67%, #000000 33.33%, #fff 33.33%, #fff 50%, #ffffff 50%, #ffffff 66.67%, #000000 66.67%, #000000 83.33%, #fff 83.33%, #fff 100%);
+  background-size: 100% 50%;
+  font-family: oldMac;
+
+}
+
+.titlebar span, .titlebar .closebox-container {
+  background-color: white;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  display: inline-block;
+}
+
+.titlebar .closebox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 2%;
+  height: 1em;
+  width: 1em;
+  /* border: 2px solid white; */
+  background-color: white;
+
+}
+
+.titlebar .closebox {
+  height: 1em;
+  width: 1em;
+  border: 1px solid black;
+  background-color: white;
+  box-sizing: border-box;
+
+}
+
+.logo {
+  width: 50%;
+}
+
+.logo-shadow {
+  filter: grayscale(100%);
 }
 
 .hide {
@@ -273,6 +343,16 @@ body {
 
 .nodisplay {
   display: none;
+}
+
+.blurry {
+  filter: blur(3px);
+}
+
+.zoom-bottom-right {
+  transform-origin: bottom right;
+  transform: scale(0);
+  transition: transform 0.1s ease-in;
 }
 
 .dismiss-down {
@@ -340,8 +420,6 @@ body {
     height: 20%;
   }
 
-
-
   .number {
     height: 50vh;
     font-size: 50vh;
@@ -354,6 +432,11 @@ body {
 
   .loading svg {
     max-width: 30vw;
+  }
+
+  .options-window {
+    height: calc(100% - 15vh);
+    width: calc(100% - 15vh);
   }
 }
 
@@ -448,6 +531,10 @@ body {
     max-width: 60vw;
   }
 
+  .options-window {
+    height: calc(90% - 10vw);
+    width: calc(100% - 10vw);
+  }
 
 }
 
