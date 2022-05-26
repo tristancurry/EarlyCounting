@@ -384,7 +384,7 @@ function handleAppleCount () {
 }
 
 function resetAppleCount () {
-  let apples = document.getElementsByClassName('apple');
+  let apples = appleGrid.getElementsByClassName('apple');
   for (let i = 0, l = apples.length; i < l; i++) {
     apples[i].classList.add('greyed');
   }
