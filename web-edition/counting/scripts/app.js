@@ -36,7 +36,18 @@ soundToggle.insertAdjacentHTML('beforeend', soundButtonMarkup);
 const optionsButton = document.getElementsByClassName('options')[0];
 
 const numberDisplay = document.getElementsByClassName('number')[0];
+const applecolourSlider = document.getElementsByClassName('applecolour-slider')[0];
 
+applecolourSlider.addEventListener('input', (event) => {
+  let howdoyoulikethemapples = document.getElementsByClassName('apple');
+  for (let i = 0, l = howdoyoulikethemapples.length; i < l; i++) {
+    let img = howdoyoulikethemapples[i].getElementsByTagName('img')[0];
+    img.style.filter = `hue-rotate(${event.target.value}deg)`;
+  }
+  document.getElementsByClassName('logo-word-apple')[0].style.filter = `hue-rotate(${event.target.value}deg)`;
+  document.getElementsByClassName('word-apple')[0].style.filter = `hue-rotate(${event.target.value}deg)`;
+
+});
 
 optionsButton.addEventListener('click', () => {
   optionsBackground.classList.remove('nodisplay');

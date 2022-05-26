@@ -271,6 +271,10 @@ body {
   transform-origin: bottom right;
   transition: transform 0.1s ease-in;
   box-shadow: 2px 2px 3px rgba(0,0,0,0.7);
+	font-size: 9pt;
+	font-family: 'Helvetica';
+	word-wrap: break-word;
+	text-align:justify;
 }
 
 .titlebar {
@@ -530,14 +534,45 @@ body {
     max-width: 60vw;
   }
 
-  .options-window {
+	.options-window {
     height: calc(90% - 10vw);
     width: calc(100% - 10vw);
   }
 
+	.options-window .credits {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		height: 30%;
+		border: 1px solid grey;
+		padding-bottom: 5px;
+	}
+
+	.options-window {
+	}
+
+	.options-window .logo {
+		width: 50%;
+		max-width: 25vh;
+		max-height: 20vh;
+		padding-top: 1vh;
+	}
+
+	.options-window .about {
+		width: 90%;
+	}
+
+	.options-window .applecolour {
+		border: 1px solid grey;
+	}
+
+	.options-window .applecolour img {
+		width: 20%;
+	}
 }
 
 @media (orientation: portrait) and (max-aspect-ratio: 1/2) {
-
 
 }
