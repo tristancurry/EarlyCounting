@@ -8,8 +8,8 @@
     <meta name="msapplication-navbutton-color" content="#FF0000">
     <meta name="apple-mobile-web-app-status-bar-style" content="#FF0000">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="css/styles.css?VER=t009">
-    <link rel="stylesheet" type="text/css" href="css/layout.css?VER=t009">
+    <link rel="stylesheet" type="text/css" href="css/styles.css?VER=t010">
+    <link rel="stylesheet" type="text/css" href="css/layout.css?VER=t010">
     <link rel="manifest" href="manifest.json">
   </head>
   <body>
@@ -72,7 +72,7 @@
       </svg>
     </div>
     <div class="options-background nodisplay">
-      <div class="options-window zoom-bottom-right">
+      <div class="options-window zoom-from-corner">
         <div class="titlebar">
           <div class="titlebar-content">
 
@@ -90,15 +90,35 @@
         </div>
         <div class="settings">
           <!-- populate with various sliders/checkboxes -->
-          <div class="applecolour">
-            <input class="applecolour-slider" type="range" min="0" max="360" value="0"/>
-           <div class="apple">
-             <img src="assets/images/apple.png"/>
-           </div>
+            <div class="settings-section applecolour">
+              <div class="section-title">Colour Adjustment</div>
+              <div class="section-control">
+                <input class="applecolour-slider" type="range" min="0" max="360" value="0"/>
+                <div class="apple">
+                  <img src="assets/images/apple.png"/>
+                </div>
+              </div>
           </div>
-          <div class="countlimit"></div>
+          <div class="settings-section countdirection">
+            <div class="section-title">Counting Direction</div>
+            <div class="section-control">
+              <div class="radio-option">
+                <input type="radio" id="up-only" name="countdir" value="up-only"/>
+                <div class="option-image"></div>
+                <label for="up-only">Up Only</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="up-down" name="countdir" value="up-down"/>
+                <div class="option-image"></div>
+                <label for="up-down">Up and Down</label>
+              </div>
+              </div>
+
+            </div>
+
+          </div>
           <div class="soundonoff"></div>
-          <div class="countdirection"></div>
+          <div class="countlimit"></div>
           <div class="resetprefs"></div>
 
           </div>

@@ -52,14 +52,14 @@ applecolourSlider.addEventListener('input', (event) => {
 optionsButton.addEventListener('click', () => {
   optionsBackground.classList.remove('nodisplay');
   setTimeout(() => {
-    optionsBackground.getElementsByClassName('options-window')[0].classList.remove('zoom-bottom-right');
+    optionsBackground.getElementsByClassName('options-window')[0].classList.remove('zoom-from-corner');
   }, 0);
 });
 
 optionsBackground.addEventListener('click', (event) => {
   let target = event.target;
   if(event.target == optionsBackground || event.target == optionsBackground.getElementsByClassName('closebox')[0]) {
-    optionsBackground.getElementsByClassName('options-window')[0].classList.add('zoom-bottom-right');
+    optionsBackground.getElementsByClassName('options-window')[0].classList.add('zoom-from-corner');
     setTimeout(() => {
       optionsBackground.classList.add('nodisplay');
     }, 100);

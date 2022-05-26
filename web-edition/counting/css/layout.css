@@ -268,7 +268,6 @@ body {
   width: calc(100% - 10vh);
   background: white;
   border: 1px solid black;
-  transform-origin: bottom right;
   transition: transform 0.1s ease-in;
   box-shadow: 2px 2px 3px rgba(0,0,0,0.7);
 	font-size: 9pt;
@@ -332,6 +331,8 @@ body {
 
 }
 
+
+
 .logo {
   width: 50%;
 }
@@ -352,8 +353,7 @@ body {
   filter: blur(3px);
 }
 
-.zoom-bottom-right {
-  transform-origin: bottom right;
+.zoom-from-corner {
   transform: scale(0);
   transition: transform 0.1s ease-in;
 }
@@ -440,7 +440,12 @@ body {
   .options-window {
     height: calc(100% - 15vh);
     width: calc(100% - 15vh);
+		transform-origin: bottom right;
   }
+
+	.zoom-from-corner {
+		 transform-origin: bottom right;
+	}
 }
 
 
@@ -537,6 +542,7 @@ body {
 	.options-window {
     height: calc(90% - 10vw);
     width: calc(100% - 10vw);
+		transform-origin: top right;
   }
 
 	.options-window .credits {
@@ -550,9 +556,6 @@ body {
 		padding-bottom: 5px;
 	}
 
-	.options-window {
-	}
-
 	.options-window .logo {
 		width: 50%;
 		max-width: 25vh;
@@ -560,16 +563,59 @@ body {
 		padding-top: 1vh;
 	}
 
+	.options-window .settings {
+		height: 70%;
+	}
+
 	.options-window .about {
 		width: 90%;
 	}
 
-	.options-window .applecolour {
+
+	.options-window .applecolour .apple {
+		height: 50%;
+		width: fit-content;
+	}
+
+
+
+	.options-window .section-control {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		position: relative;
+		width: 100%;
+		height: calc(100% - 1.5em);
+	}
+
+	.options-window .applecolour-slider {
+		height: 100%;
+		width: 70%;
+	}
+
+	.settings-section {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 25%;
 		border: 1px solid grey;
 	}
 
-	.options-window .applecolour img {
-		width: 20%;
+	.section-title {
+		height: 1em;
+	}
+
+	.radio-option {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+	}
+
+	.zoom-from-corner {
+		 transform-origin: top right;
 	}
 }
 

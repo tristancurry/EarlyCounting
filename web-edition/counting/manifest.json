@@ -5,7 +5,7 @@
 	"scope": "../counting/",
 	"start_url": "./index.html",
 	"theme_color": "#FF0000",
-	"background_color": "#444444",
+	"background_color": "#444443",
 	"icons": [
 		{
 			"src": "assets/images/icon_192.png",
