@@ -328,17 +328,16 @@ body {
   border: 1px solid black;
   background-color: white;
   box-sizing: border-box;
-
 }
 
-
-
-.logo {
-  width: 50%;
-}
 
 .logo-shadow {
   filter: grayscale(100%);
+}
+
+.logo svg {
+	width: 100%;
+	height: 100%;
 }
 
 .hide {
@@ -438,10 +437,94 @@ body {
   }
 
   .options-window {
+		flex-direction: row;
     height: calc(100% - 15vh);
     width: calc(100% - 15vh);
 		transform-origin: bottom right;
   }
+
+	.options-window .credits {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		position: relative;
+		width: 100%;
+		height: 25%;
+		border: 1px solid grey;
+		padding-bottom: 5px;
+	}
+
+	.options-window .logo {
+		padding: 1vh;
+		height: 90%;
+	}
+
+
+	.options-window .about {
+		width: 50%;
+	}
+
+	.options-window-content {
+		height: calc(100% - 1.5*14pt);
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-content: flex-start;
+	}
+
+
+
+	.options-window .applecolour .apple {
+		height: 50%;
+		width: fit-content;
+	}
+
+
+
+	.options-window .section-control {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		position: relative;
+		width: 100%;
+		height: calc(100% - 1.5em);
+	}
+
+	.options-window .applecolour-slider {
+		height: 100%;
+		width: 70%;
+	}
+
+	.settings-section {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		height: 25%;
+		width: 50%;
+		border: 1px solid grey;
+		box-sizing: border-box;
+	}
+
+	.section-title {
+		height: 1em;
+	}
+
+	.radio-option {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		text-align: center;
+	}
+
+	.option-image {
+		display: none;
+	}
 
 	.zoom-from-corner {
 		 transform-origin: bottom right;
@@ -558,9 +641,18 @@ body {
 
 	.options-window .logo {
 		width: 50%;
-		max-width: 25vh;
+		max-width: 24vh;
 		max-height: 20vh;
 		padding-top: 1vh;
+	}
+
+	.options-window-content {
+		height: calc(100% - 1.5*14pt);
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		/* justify-content: center; */
+		align-items: center;
 	}
 
 	.options-window .settings {
@@ -598,9 +690,11 @@ body {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		width: 100%;
 		align-items: center;
-		height: 25%;
+		height: 17.5%;
 		border: 1px solid grey;
+		box-sizing: border-box;
 	}
 
 	.section-title {
@@ -611,7 +705,13 @@ body {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: space-between;
+		height: 100%;
+	}
+
+
+	.option-image {
+		font-size: 3.4vh;
 	}
 
 	.zoom-from-corner {

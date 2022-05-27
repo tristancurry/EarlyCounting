@@ -80,15 +80,15 @@
 
           </div>
         </div>
+        <div class="options-window-content">
         <div class="credits">
           <div class="logo"></div>
           <div class="about">
             <p>by Tristan Curry, 2022.
               Github repo <a href="https://github.com/tristancurry/EarlyCounting/">here</a>!<br/>
-              This is a web version of the Processing <a href="https://github.com/Cheddles/EarlyCounting">application</a> by Chris Heddles, 2014.</p>
+              This is a web version of the <a href="https://github.com/Cheddles/EarlyCounting">application</a> by Chris Heddles, 2014.</p>
           </div>
         </div>
-        <div class="settings">
           <!-- populate with various sliders/checkboxes -->
             <div class="settings-section applecolour">
               <div class="section-title">Colour Adjustment</div>
@@ -103,26 +103,46 @@
             <div class="section-title">Counting Direction</div>
             <div class="section-control">
               <div class="radio-option">
+                <div class="option-image">⬆️</div>
                 <input type="radio" id="up-only" name="countdir" value="up-only"/>
-                <div class="option-image"></div>
                 <label for="up-only">Up Only</label>
               </div>
               <div class="radio-option">
+                <div class="option-image">⬆️⬇️</div>
                 <input type="radio" id="up-down" name="countdir" value="up-down"/>
-                <div class="option-image"></div>
                 <label for="up-down">Up and Down</label>
               </div>
               </div>
+            </div>
+            <div class="settings-section countlimit">
+              <div class="section-title">Maximum number of apples</div>
+              <div class="section-control">
+                <button>Less</button><input type="number"/><button>More</button>
+
+              </div>
 
             </div>
+            <div class="settings-section soundonoff">
+              <div class="section-title">Sound</div>
+              <div class="section-control">
+                <div class="radio-option">
+                  <div class="option-image">⬆️</div>
+                  <input type="radio" id="up-only" name="countdir" value="up-only"/>
+                  <label for="up-only">Off</label>
+                </div>
+                <div class="radio-option">
+                  <div class="option-image">⬆️⬇️</div>
+                  <input type="radio" id="up-down" name="countdir" value="up-down"/>
+                  <label for="up-down">On</label>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="resetprefs"></div>
 
           </div>
-          <div class="soundonoff"></div>
-          <div class="countlimit"></div>
-          <div class="resetprefs"></div>
 
           </div>
-        </div>
       </div>
     </div>
     <div class="update dismiss-down">
