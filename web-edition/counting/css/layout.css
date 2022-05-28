@@ -623,7 +623,7 @@ body {
   }
 
 	.options-window {
-    height: calc(90% - 10vw);
+    height: calc(90vh - 10vw);
     width: calc(100% - 10vw);
 		transform-origin: top right;
   }
