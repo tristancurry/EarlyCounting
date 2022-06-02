@@ -2,11 +2,13 @@
 const SCRIPT_PATH = 'scripts';
 const ASSET_PATH = 'assets';
 
-let viewport = document.querySelector('meta[name=viewport]');
-viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+
 
 window.addEventListener('resize', () => {
-  document.documentElement.style.setProperty('overflow', 'auto');
+  let w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  let h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  document.getElementsByTagName('body')[0].style.width = `${w}px`;
+  document.getElementsByTagName('body')[0].style.height = `${h}px`;
 });
 //simple scriptloader, thanks https://usefulangle.com/post/343/javascript-load-multiple-script-by-order
 let loadScript = (url) => {
