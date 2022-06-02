@@ -1,6 +1,13 @@
 //setup.js
 const SCRIPT_PATH = 'scripts';
 const ASSET_PATH = 'assets';
+
+let viewport = document.querySelector('meta[name=viewport]');
+viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+
+window.addEventListener('resize', () => {
+  document.documentElement.style.setProperty('overflow', 'auto');
+});
 //simple scriptloader, thanks https://usefulangle.com/post/343/javascript-load-multiple-script-by-order
 let loadScript = (url) => {
   return new Promise ( (resolve, reject) => {

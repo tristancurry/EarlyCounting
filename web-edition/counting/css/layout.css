@@ -634,14 +634,14 @@ body {
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		height: 30%;
+		height: 40%;
 		border: 1px solid grey;
 		padding-bottom: 5px;
 	}
 
 	.options-window .logo {
-		width: 50%;
-		max-width: 24vh;
+		width: 70%;
+		max-width: 28vh;
 		max-height: 20vh;
 		padding-top: 1vh;
 	}
@@ -656,7 +656,7 @@ body {
 	}
 
 	.options-window .settings {
-		height: 70%;
+		height: 60%;
 	}
 
 	.options-window .about {
@@ -692,7 +692,7 @@ body {
 		justify-content: center;
 		width: 100%;
 		align-items: center;
-		height: 17.5%;
+		height: 15%;
 		border: 1px solid grey;
 		box-sizing: border-box;
 	}
@@ -705,12 +705,13 @@ body {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: space-around;
 		height: 100%;
 	}
 
 
 	.option-image {
+		display: none;
 		font-size: 3.4vh;
 	}
 
