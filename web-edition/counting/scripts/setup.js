@@ -2,14 +2,6 @@
 const SCRIPT_PATH = 'scripts';
 const ASSET_PATH = 'assets';
 
-
-
-window.addEventListener('resize', () => {
-  let w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-  let h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-  document.getElementsByTagName('body')[0].style.width = `${w}px`;
-  document.getElementsByTagName('body')[0].style.height = `${h}px`;
-});
 //simple scriptloader, thanks https://usefulangle.com/post/343/javascript-load-multiple-script-by-order
 let loadScript = (url) => {
   return new Promise ( (resolve, reject) => {
