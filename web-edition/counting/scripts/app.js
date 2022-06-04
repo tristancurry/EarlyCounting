@@ -1,4 +1,4 @@
-const N_MAX = 16; // highest number expected
+const N_MAX = 9; // highest number expected
 const IMAGE_PATH = 'assets/images/apple.png';
 let N = 1;
 let counted = 0;
@@ -33,10 +33,14 @@ prevButton.insertAdjacentHTML('beforeend', prevButtonMarkup);
 
 const soundToggle = document.getElementsByClassName('soundtoggle')[0];
 soundToggle.insertAdjacentHTML('beforeend', soundButtonMarkup);
+
 const optionsButton = document.getElementsByClassName('options')[0];
 
 const numberDisplay = document.getElementsByClassName('number')[0];
 const applecolourSlider = document.getElementsByClassName('applecolour-slider')[0];
+
+//setup event listeners for the various options.
+
 
 applecolourSlider.addEventListener('input', (event) => {
   let howdoyoulikethemapples = document.getElementsByClassName('apple');
@@ -46,7 +50,6 @@ applecolourSlider.addEventListener('input', (event) => {
   }
   document.getElementsByClassName('logo-word-apple')[0].style.filter = `hue-rotate(${event.target.value}deg)`;
   document.getElementsByClassName('word-apple')[0].style.filter = `hue-rotate(${event.target.value}deg)`;
-
 });
 
 optionsButton.addEventListener('click', () => {
