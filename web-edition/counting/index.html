@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <title>Counting Apples</title>
     <meta name="theme-color" content="#FF0000">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="msapplication-navbutton-color" content="#FF0000">
     <meta name="apple-mobile-web-app-status-bar-style" content="#FF0000">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="css/styles.css?VER=t010">
-    <link rel="stylesheet" type="text/css" href="css/layout.css?VER=t010">
+    <link rel="stylesheet" type="text/css" href="css/styles.css?VER=t012">
+    <link rel="stylesheet" type="text/css" href="css/layout.css?VER=t012">
     <link rel="manifest" href="manifest.json">
   </head>
   <body>
@@ -104,7 +104,7 @@
             <div class="section-control">
               <div class="radio-option">
                 <div class="option-image">⬆️</div>
-                <input type="radio" id="up-only" name="countdir" value="up-only"/>
+                <input type="radio" id="up-only" name="countdir" value="up-only" checked/>
                 <label for="up-only">Up Only</label>
               </div>
               <div class="radio-option">
@@ -117,8 +117,7 @@
             <div class="settings-section countlimit">
               <div class="section-title">Maximum number of apples</div>
               <div class="section-control">
-                <button>Less</button><input type="number"/><button>More</button>
-
+                <button>Less</button><span class="countlimit">9</span><button>More</button>
               </div>
 
             </div>
@@ -127,13 +126,13 @@
               <div class="section-control">
                 <div class="radio-option">
                   <div class="option-image">⬆️</div>
-                  <input type="radio" id="up-only" name="countdir" value="up-only"/>
-                  <label for="up-only">Off</label>
+                  <input type="radio" id="sound-off" name="soundcontrol" value="sound-off"/>
+                  <label for="sound-off">Off</label>
                 </div>
                 <div class="radio-option">
                   <div class="option-image">⬆️⬇️</div>
-                  <input type="radio" id="up-down" name="countdir" value="up-down"/>
-                  <label for="up-down">On</label>
+                  <input type="radio" id="sound-on" name="soundcontrol" value="sound-on" checked/>
+                  <label for="sound-on">On</label>
                 </div>
               </div>
             </div>

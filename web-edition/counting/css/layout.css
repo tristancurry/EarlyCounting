@@ -276,6 +276,19 @@ body {
 	text-align:justify;
 }
 
+.options-window-content button {
+	font-size: 14pt;
+	font-family: oldMac;
+	border: 1px solid black;
+	width: 70pt;
+	border-radius: 5pt;
+}
+
+span.countlimit {
+	font-size: 14pt;
+	font-family: oldMac;
+}
+
 .titlebar {
   display: flex;
   justify-content: center;
@@ -422,6 +435,11 @@ body {
     height: 20%;
   }
 
+  .option-button {
+    height: 10vh;
+    width: 10vh;
+  }
+
   .number {
     height: 50vh;
     font-size: 50vh;
@@ -450,7 +468,7 @@ body {
 		align-items: center;
 		position: relative;
 		width: 100%;
-		height: 25%;
+		height: 30%;
 		border: 1px solid grey;
 		padding-bottom: 5px;
 	}
@@ -503,7 +521,7 @@ body {
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		height: 25%;
+		height: 35%;
 		width: 50%;
 		border: 1px solid grey;
 		box-sizing: border-box;
@@ -604,9 +622,14 @@ body {
     height: 8vh;
   }
 
+  .option-button {
+    height: 8vh;
+    width: 8vh;
+  }
+
 
   .navigation button {
-    height: 100%;
+    height: 8vh;
   }
 
 
@@ -665,8 +688,8 @@ body {
 
 
 	.options-window .applecolour .apple {
-		height: 50%;
-		width: fit-content;
+		width: 15%;
+    height: auto;
 	}
 
 

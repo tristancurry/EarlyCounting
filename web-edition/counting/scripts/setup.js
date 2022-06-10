@@ -2,6 +2,7 @@
 const SCRIPT_PATH = 'scripts';
 const ASSET_PATH = 'assets';
 
+
 //simple scriptloader, thanks https://usefulangle.com/post/343/javascript-load-multiple-script-by-order
 let loadScript = (url) => {
   return new Promise ( (resolve, reject) => {

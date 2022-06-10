@@ -45,7 +45,16 @@
   .closebox-container div:active {
     background-color: black;
     border-width: unset;
+  }
 
+  .options-window-content button:hover {
+    background-color: grey;
+    color: white;
+  }
+
+  .options-window-content button:active {
+    background-color: black;
+    color: white;
   }
 }
 
@@ -110,6 +119,7 @@ button {
 
   .options {
     font-size: 8vh;
+    line-height: 8vh;
     font-weight: bold;
     color: var(--buttonBg);
   }
