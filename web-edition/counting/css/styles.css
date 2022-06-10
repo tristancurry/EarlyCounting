@@ -119,6 +119,7 @@ button {
 
   .options {
     font-size: 8vh;
+    line-height: 8vh;
     font-weight: bold;
     color: var(--buttonBg);
   }
