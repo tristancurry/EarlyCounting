@@ -1,4 +1,4 @@
-const N_MAX = 9; // highest number expected
+const N_MAX = 20; // highest number expected
 const IMAGE_PATH = 'assets/images/apple.png';
 let N = 1;
 let counted = 0;
@@ -11,8 +11,11 @@ const GRID_DIMENSIONS = {
   square: []
 };
 
+//default values
 let sound_on = true;
 let countdown = false;
+let countdirection = 'up-only';
+let countlimit = 9;
 
 const main = document.getElementsByClassName('main')[0];
 
@@ -24,7 +27,7 @@ logo.insertAdjacentHTML('beforeend', aboutLogoMarkup);
 const optionsBackground = document.getElementsByClassName('options-background')[0];
 
 
-
+//Buttons on main view
 const nextButton = document.getElementsByClassName('next')[0];
 nextButton.insertAdjacentHTML('beforeend', nextButtonMarkup);
 
@@ -34,13 +37,85 @@ prevButton.insertAdjacentHTML('beforeend', prevButtonMarkup);
 const soundToggle = document.getElementsByClassName('soundtoggle')[0];
 soundToggle.insertAdjacentHTML('beforeend', soundButtonMarkup);
 
+const shuffleButton = '';
+
 const optionsButton = document.getElementsByClassName('options')[0];
 
 const numberDisplay = document.getElementsByClassName('number')[0];
-const applecolourSlider = document.getElementsByClassName('applecolour-slider')[0];
 
+//Controls that appear in the options window
+const applecolourSlider = document.getElementsByClassName('applecolour-slider')[0];
+const countdirectionControl = document.getElementsByClassName('countdirection')[0];
+const soundonoffControl = document.getElementsByClassName('soundonoff')[0];
+const countlimitControl = document.getElementsByClassName('countlimit')[0];
 //setup event listeners for the various options.
 
+const countDir_radios = countdirectionControl.getElementsByTagName('input');
+for (const radio of countDir_radios) {
+  radio.onclick = (event) => {
+    //set the countdir variable to the appropriate value.
+    countdirection = event.target.value;
+    //store user preference
+  }
+}
+
+const soundonoff_radios = soundonoffControl.getElementsByTagName('input');
+for (const radio of soundonoff_radios) {
+  radio.onclick = (event) => {
+    //set the countdir variable to the appropriate value.
+    if (event.target.value == 'sound-off') {
+      sound_on = false;
+      document.getElementsByClassName('nope')[0].classList.remove('hide');
+    } else {
+      sound_on = true;
+      document.getElementsByClassName('nope')[0].classList.add('hide');
+    }
+    //store user preference
+  }
+}
+
+countlimitControl.addEventListener('click', (event) => {
+  if(event.target.tagName == 'BUTTON') {
+    console.log(event.target);
+    if (event.target.id == 'limit-less') {
+      //reduce countlimit, if countlimit is > 1
+      if(countlimit > 1) {
+        countlimit --;
+      }
+      //disable when countlimit is 1
+      if(countlimit <= 1) {
+        event.target.disabled = true;
+      }
+
+      if (N > countlimit) {
+        N = countlimit;
+        resizeGrid(N);
+        resetAppleCount();
+      }
+      //enable limit-more if countlimit is less than N_MAX
+      if (document.getElementById('limit-more').disabled && countlimit < N_MAX) {
+        document.getElementById('limit-more').disabled = false;
+      }
+    } else if (event.target.id == 'limit-more') {
+      //increase countlimit, if countlimit < N_MAX
+      if(countlimit < N_MAX) {
+        countlimit ++;
+      }
+      //disable when countlimit is N_MAX
+      if(countlimit >= N_MAX) {
+        event.target.disabled = true;
+      }
+      //enable limit-more if countlimit is more than 1
+      if (document.getElementById('limit-less').disabled && countlimit > 1) {
+        document.getElementById('limit-less').disabled = false;
+      }
+    }
+    //display current countlimit in window
+    let display = countlimitControl.getElementsByClassName('countlimit')[0];
+    display.innerText = countlimit;
+    //save user preference
+  }
+});
 
 applecolourSlider.addEventListener('input', (event) => {
   let howdoyoulikethemapples = document.getElementsByClassName('apple');
@@ -70,14 +145,12 @@ optionsBackground.addEventListener('click', (event) => {
 });
 
 nextButton.addEventListener('click', () => {
-  if(N < N_MAX) {
+  if(N < countlimit) {
     N++;
   } else {
     N = 1;
   }
   resizeGrid(N);
-  if(N > 9) {numberDisplay.classList.add('number-long');}
-  else {numberDisplay.classList.remove('number-long');}
   resetAppleCount();
 });
 
@@ -85,20 +158,23 @@ prevButton.addEventListener('click', () => {
   if(N > 1) {
     N--;
   } else {
-    N = N_MAX;
+    N = countlimit;
   }
   resizeGrid(N);
-  if(N > 9) {numberDisplay.classList.add('number-long');}
-  else {numberDisplay.classList.remove('number-long');}
-  numberDisplay.innerText = N;
   resetAppleCount();
-  //consider replacing this with a neat transition effect, utilising
-  //some extra divs, or an extended div that can slide along...
 });
 
 soundToggle.addEventListener ('click', () => {
   sound_on = !sound_on;
   document.getElementsByClassName('nope')[0].classList.toggle('hide');
+  //toggle state of radio buttons in options window too.
+  if (sound_on) {
+    document.getElementById('sound-on').checked = true;
+  } else {
+    document.getElementById('sound-off').checked = true;
+  }
+  //retain user preference
+
 });
 
 
@@ -285,8 +361,8 @@ LAYOUTS.square = [
 //2 - not all that tall/wide: use a square grid whenever possible.
 const wideQuery = window.matchMedia('(orientation: landscape) and (min-aspect-ratio: 2/1)');
 const narrowQuery = window.matchMedia('(orientation: portrait) and (max-aspect-ratio: 1/2)');
-const portraitQuery = window.matchMedia('(orientation: portrait)');
-const landscapeQuery = window.matchMedia('(orientation: landscape)');
+const portraitQuery = window.matchMedia('(orientation: portrait) and (min-aspect-ratio: 1/2)');
+const landscapeQuery = window.matchMedia('(orientation: landscape) and (max-aspect-ratio: 2/1)');
 
 wideQuery.addListener(() => {
   resizeGrid(N);
@@ -296,6 +372,13 @@ narrowQuery.addListener(() => {
   resizeGrid(N);
 });
 
+portraitQuery.addListener(() => {
+  resizeGrid(N);
+});
+
+landscapeQuery.addListener(() => {
+  resizeGrid(N);
+});
 
 
 generateLayouts();
@@ -310,6 +393,8 @@ resizeGrid(N);
 
 
 function resizeGrid (N) {
+  if(N > 9) {numberDisplay.classList.add('number-long');}
+  else {numberDisplay.classList.remove('number-long');}
   let shape = 'square';
   // if(wideQuery.matches){
   //   shape = 'wide';
@@ -378,7 +463,7 @@ function handleAppleCount () {
     event.target.classList.remove('greyed');
     counted++;
     playNumberSound(counted);
-  } else if (countdown == true && event.target.classList.contains('apple')) {
+  } else if (countdirection == 'up-down' && event.target.classList.contains('apple')) {
     event.target.classList.add('greyed');
     counted--;
     playNumberSound(counted);
