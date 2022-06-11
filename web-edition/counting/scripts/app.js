@@ -1,4 +1,4 @@
-const N_MAX = 20; // highest number expected
+const N_MAX = 25; // highest number expected
 const cellsRequired = Math.pow(Math.ceil(Math.sqrt(N_MAX)), 2);
 const IMAGE_PATH = 'assets/images/apple.png';
 let N = 1;
