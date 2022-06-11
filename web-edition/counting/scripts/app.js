@@ -42,6 +42,7 @@ if (storageAvailable('localStorage')) {
       let value = localStorage.getItem(s);
       if (value === 'true') {value = true;}
       if (value === 'false') {value = false;}
+      settings[s] = value;
     }
   }
 }
@@ -549,6 +550,8 @@ function applySettings () {
   //countlimit - adjust, and restrict displayed apples as necessary
   settings.countlimit++;
   document.getElementById('limit-less').dispatchEvent(new Event('click'));
+  let display = countlimitControl.getElementsByClassName('countlimit')[0];
+  display.innerText = settings.countlimit;
   //count direction
   document.getElementById(settings.countdirection).checked = true;
 }
