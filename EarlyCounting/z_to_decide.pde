@@ -11,6 +11,8 @@ Adult setup section?
   - set preferences for maximum number
   - set own images
   
+How to store layout and selection information
+  - currently using a class with many hard-coded elements (hopefully flexible later)
 
 
 */
