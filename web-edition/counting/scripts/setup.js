@@ -61,7 +61,18 @@ const resources = [
   {url:`${ASSET_PATH}/audio/voice_006.mp3`, resourceType:`audio`, val: 6},
   {url:`${ASSET_PATH}/audio/voice_007.mp3`, resourceType:`audio`, val: 7},
   {url:`${ASSET_PATH}/audio/voice_008.mp3`, resourceType:`audio`, val: 8},
-  {url:`${ASSET_PATH}/audio/voice_009.mp3`, resourceType:`audio`, val: 9}
+  {url:`${ASSET_PATH}/audio/voice_009.mp3`, resourceType:`audio`, val: 9},
+  {url:`${ASSET_PATH}/audio/voice_010.mp3`, resourceType:`audio`, val: 10},
+  {url:`${ASSET_PATH}/audio/voice_011.mp3`, resourceType:`audio`, val: 11},
+  {url:`${ASSET_PATH}/audio/voice_012.mp3`, resourceType:`audio`, val: 12},
+  {url:`${ASSET_PATH}/audio/voice_013.mp3`, resourceType:`audio`, val: 13},
+  {url:`${ASSET_PATH}/audio/voice_014.mp3`, resourceType:`audio`, val: 14},
+  {url:`${ASSET_PATH}/audio/voice_015.mp3`, resourceType:`audio`, val: 15},
+  {url:`${ASSET_PATH}/audio/voice_016.mp3`, resourceType:`audio`, val: 16},
+  {url:`${ASSET_PATH}/audio/voice_017.mp3`, resourceType:`audio`, val: 17},
+  {url:`${ASSET_PATH}/audio/voice_018.mp3`, resourceType:`audio`, val: 18},
+  {url:`${ASSET_PATH}/audio/voice_019.mp3`, resourceType:`audio`, val: 19},
+  {url:`${ASSET_PATH}/audio/voice_020.mp3`, resourceType:`audio`, val: 20}
 ];
 
 

@@ -471,6 +471,7 @@ span.countlimit {
 		height: 30%;
 		border: 1px solid grey;
 		padding-bottom: 5px;
+		box-sizing: border-box;
 	}
 
 	.options-window .logo {

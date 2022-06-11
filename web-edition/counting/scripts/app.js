@@ -1,4 +1,5 @@
 const N_MAX = 20; // highest number expected
+const cellsRequired = Math.pow(Math.ceil(Math.sqrt(N_MAX)), 2);
 const IMAGE_PATH = 'assets/images/apple.png';
 let N = 1;
 let counted = 0;
@@ -76,7 +77,6 @@ for (const radio of soundonoff_radios) {
 
 countlimitControl.addEventListener('click', (event) => {
   if(event.target.tagName == 'BUTTON') {
-    console.log(event.target);
     if (event.target.id == 'limit-less') {
       //reduce countlimit, if countlimit is > 1
       if(countlimit > 1) {
@@ -203,9 +203,9 @@ appleGrid.addEventListener('mousedown', (event) => {
 });
 
 
+console.log(cellsRequired);
 
-
-for (let i = 0; i < N_MAX; i++) {
+for (let i = 0; i < cellsRequired; i++) {
   let celly = document.createElement('div');
   celly.classList.add('cell');
   appleGrid.appendChild(celly);
@@ -412,7 +412,7 @@ function resizeGrid (N) {
   let cells = appleGrid.getElementsByClassName('cell');
 
   //adjust visibilities of elements according to N
-  for (let i = 0; i < N_MAX; i++) {
+  for (let i = 0; i < cellsRequired; i++) {
     let thisApple = cells[i].getElementsByClassName('apple')[0];
     let thisSpacer = cells[i].getElementsByClassName('spacer')[0];
     if (i >= thisLayout.length) {
