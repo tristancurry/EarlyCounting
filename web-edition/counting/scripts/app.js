@@ -13,10 +13,44 @@ const GRID_DIMENSIONS = {
 };
 
 //default values
-let sound_on = true;
-let countdown = false;
-let countdirection = 'up-only';
-let countlimit = 9;
+const settings_default = {
+  sound_on: true,
+  countdirection: 'up-only',
+  countlimit: 9,
+  applecolourOffset: 0
+}
+
+const settings = {};
+//initialise settings with default values
+for (const s in settings_default) {
+  let value = settings_default[s];
+  settings[s] = value;
+}
+
+
+if (storageAvailable('localStorage')) {
+  //check to see if storage is already populated (e.g. app has been visited before)
+  if(!localStorage.getItem('sound_on')) {
+    //populate storage with default settings
+    for (const s in settings_default) {
+      let value = settings_default[s];
+      localStorage.setItem(s, value);
+    }
+  } else {
+    //load stored settings into msapplication
+    for (const s in settings) {
+      let value = localStorage.getItem(s);
+      if (value === 'true') {value = true;}
+      if (value === 'false') {value = false;}
+    }
+  }
+}
+
+
+
+
+
+
 
 const main = document.getElementsByClassName('main')[0];
 
@@ -55,8 +89,11 @@ const countDir_radios = countdirectionControl.getElementsByTagName('input');
 for (const radio of countDir_radios) {
   radio.onclick = (event) => {
     //set the countdir variable to the appropriate value.
-    countdirection = event.target.value;
+    settings.countdirection = event.target.value;
     //store user preference
+    if (storageAvailable('localStorage')) {
+      localStorage.setItem('countdirection', settings.countdirection);
+    }
   }
 }
 
@@ -65,10 +102,10 @@ for (const radio of soundonoff_radios) {
   radio.onclick = (event) => {
     //set the countdir variable to the appropriate value.
     if (event.target.value == 'sound-off') {
-      sound_on = false;
+      settings.sound_on = false;
       document.getElementsByClassName('nope')[0].classList.remove('hide');
     } else {
-      sound_on = true;
+      settings.sound_on = true;
       document.getElementsByClassName('nope')[0].classList.add('hide');
     }
     //store user preference
@@ -79,49 +116,56 @@ countlimitControl.addEventListener('click', (event) => {
   if(event.target.tagName == 'BUTTON') {
     if (event.target.id == 'limit-less') {
       //reduce countlimit, if countlimit is > 1
-      if(countlimit > 1) {
-        countlimit --;
+      if(settings.countlimit > 1) {
+        settings.countlimit --;
       }
       //disable when countlimit is 1
-      if(countlimit <= 1) {
+      if(settings.countlimit <= 1) {
         event.target.disabled = true;
       }
 
-      if (N > countlimit) {
-        N = countlimit;
+      if (N > settings.countlimit) {
+        N = settings.countlimit;
         resizeGrid(N);
         resetAppleCount();
       }
       //enable limit-more if countlimit is less than N_MAX
-      if (document.getElementById('limit-more').disabled && countlimit < N_MAX) {
+      if (document.getElementById('limit-more').disabled && settings.countlimit < N_MAX) {
         document.getElementById('limit-more').disabled = false;
       }
     } else if (event.target.id == 'limit-more') {
       //increase countlimit, if countlimit < N_MAX
-      if(countlimit < N_MAX) {
-        countlimit ++;
+      if(settings.countlimit < N_MAX) {
+        settings.countlimit ++;
       }
       //disable when countlimit is N_MAX
-      if(countlimit >= N_MAX) {
+      if(settings.countlimit >= N_MAX) {
         event.target.disabled = true;
       }
       //enable limit-more if countlimit is more than 1
-      if (document.getElementById('limit-less').disabled && countlimit > 1) {
+      if (document.getElementById('limit-less').disabled && settings.countlimit > 1) {
         document.getElementById('limit-less').disabled = false;
       }
     }
     //display current countlimit in window
     let display = countlimitControl.getElementsByClassName('countlimit')[0];
-    display.innerText = countlimit;
+    display.innerText = settings.countlimit;
     //save user preference
+    if (storageAvailable('localStorage')) {
+      localStorage.setItem('countlimit', settings.countlimit);
+    }
   }
 });
 
 applecolourSlider.addEventListener('input', (event) => {
   let howdoyoulikethemapples = document.getElementsByClassName('apple');
+  settings.applecolourOffset = event.target.value;
+  if(storageAvailable('localStorage')) {
+    localStorage.setItem('applecolourOffset', settings.applecolourOffset);
+  }
   for (let i = 0, l = howdoyoulikethemapples.length; i < l; i++) {
     let img = howdoyoulikethemapples[i].getElementsByTagName('img')[0];
-    img.style.filter = `hue-rotate(${event.target.value}deg)`;
+    img.style.filter = `hue-rotate(${settings.applecolourOffset}deg)`;
   }
   document.getElementsByClassName('logo-word-apple')[0].style.filter = `hue-rotate(${event.target.value}deg)`;
   document.getElementsByClassName('word-apple')[0].style.filter = `hue-rotate(${event.target.value}deg)`;
@@ -145,7 +189,7 @@ optionsBackground.addEventListener('click', (event) => {
 });
 
 nextButton.addEventListener('click', () => {
-  if(N < countlimit) {
+  if(N < settings.countlimit) {
     N++;
   } else {
     N = 1;
@@ -158,24 +202,26 @@ prevButton.addEventListener('click', () => {
   if(N > 1) {
     N--;
   } else {
-    N = countlimit;
+    N = settings.countlimit;
   }
   resizeGrid(N);
   resetAppleCount();
 });
 
 soundToggle.addEventListener ('click', () => {
-  sound_on = !sound_on;
+  settings.sound_on = !settings.sound_on;
   document.getElementsByClassName('nope')[0].classList.toggle('hide');
   //toggle state of radio buttons in options window too.
-  if (sound_on) {
+  if (settings.sound_on) {
     document.getElementById('sound-on').checked = true;
   } else {
     document.getElementById('sound-off').checked = true;
   }
   //retain user preference
-
-});
+  if (storageAvailable('localStorage')) {
+    localStorage.setItem('sound_on', settings.sound_on);
+  }
+ });
 
 
 
@@ -201,9 +247,6 @@ appleGrid.addEventListener('touchend', (event) => {
 appleGrid.addEventListener('mousedown', (event) => {
   handleAppleCount();
 });
-
-
-console.log(cellsRequired);
 
 for (let i = 0; i < cellsRequired; i++) {
   let celly = document.createElement('div');
@@ -382,7 +425,11 @@ landscapeQuery.addListener(() => {
 
 
 generateLayouts();
+
+//execute settings once loaded/initialised
+applySettings();
 resizeGrid(N);
+
 //actually might be able to get CSS to handle cases matching 1: just set the width of
 //the countables appropriately and the grid should handle the rest?
 
@@ -463,7 +510,7 @@ function handleAppleCount () {
     event.target.classList.remove('greyed');
     counted++;
     playNumberSound(counted);
-  } else if (countdirection == 'up-down' && event.target.classList.contains('apple')) {
+  } else if (settings.countdirection == 'up-down' && event.target.classList.contains('apple')) {
     event.target.classList.add('greyed');
     counted--;
     playNumberSound(counted);
@@ -481,7 +528,37 @@ function resetAppleCount () {
 }
 
 function playNumberSound (number) {
-  if (sound_on == true && loadedSounds[number]) {
+  if (settings.sound_on == true && loadedSounds[number]) {
     loadedSounds[number].play();
+  }
+}
+
+function applySettings () {
+  //for each setting...trigger associated actions
+  //sound - toggle sound state if necessary, change state of Controls
+  if(settings.sound_on == true) {
+    document.getElementsByClassName('nope')[0].classList.add('hide');
+    document.getElementById('sound-on').checked = true;
+  } else {
+    document.getElementsByClassName('nope')[0].classList.remove('hide');
+    document.getElementById('sound-off').checked = true;
+  }
+  //apple colour - set slider to relevant position
+  applecolourSlider.value = parseInt(settings.applecolourOffset);
+  applecolourSlider.dispatchEvent(new Event('input'));
+  //countlimit - adjust, and restrict displayed apples as necessary
+  settings.countlimit++;
+  document.getElementById('limit-less').dispatchEvent(new Event('click'));
+  //count direction
+  document.getElementById(settings.countdirection).checked = true;
+}
+
+function restoreDefaultSettings () {
+  for (const s in settings_default) {
+    let value = settings_default[s];
+    settings[s] = value;
+    if(storageAvailable('localStorage')) {
+      localStorage.setItem(s, value);
+    }
   }
 }

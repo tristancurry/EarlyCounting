@@ -13,6 +13,7 @@
     <link rel="manifest" href="manifest.json">
   </head>
   <body>
+
     <script type="text/javascript" src="scripts/setup.js"></script>
     <div class="main">
       <div class="countables">
@@ -71,6 +72,15 @@
        </g>
       </svg>
     </div>
+
+    <script type="text/javascript">
+    if (storageAvailable('localStorage')) {
+      if(localStorage.getItem('applecolourOffset')) {
+        document.getElementsByClassName('word-apple')[0].style.filter = `hue-rotate(${localStorage.getItem('applecolourOffset')}deg)`;
+      }
+    }
+    </script>
+
     <div class="options-background nodisplay">
       <div class="options-window zoom-from-corner">
         <div class="titlebar">
