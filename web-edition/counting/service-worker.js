@@ -1,4 +1,4 @@
-let CACHE_NAME = 'counting-cache-t01u';
+let CACHE_NAME = 'counting-cache-t01v';
 let urlsToCache = [
 	'index.html',
 	'manifest.json',
@@ -27,6 +27,11 @@ let urlsToCache = [
 	'assets/audio/voice_018.mp3',
 	'assets/audio/voice_019.mp3',
 	'assets/audio/voice_020.mp3',
+	'assets/audio/voice_021.mp3',
+	'assets/audio/voice_022.mp3',
+	'assets/audio/voice_023.mp3',
+	'assets/audio/voice_024.mp3',
+	'assets/audio/voice_025.mp3',
 	'scripts/swHandling.js',
 	'scripts/app.js',
 	'scripts/setup.js',

@@ -100,7 +100,12 @@ const resources = [
   {url:`${ASSET_PATH}/audio/voice_017.mp3`, resourceType:`audio`, val: 17},
   {url:`${ASSET_PATH}/audio/voice_018.mp3`, resourceType:`audio`, val: 18},
   {url:`${ASSET_PATH}/audio/voice_019.mp3`, resourceType:`audio`, val: 19},
-  {url:`${ASSET_PATH}/audio/voice_020.mp3`, resourceType:`audio`, val: 20}
+  {url:`${ASSET_PATH}/audio/voice_020.mp3`, resourceType:`audio`, val: 20},
+  {url:`${ASSET_PATH}/audio/voice_021.mp3`, resourceType:`audio`, val: 21},
+  {url:`${ASSET_PATH}/audio/voice_022.mp3`, resourceType:`audio`, val: 22},
+  {url:`${ASSET_PATH}/audio/voice_023.mp3`, resourceType:`audio`, val: 23},
+  {url:`${ASSET_PATH}/audio/voice_024.mp3`, resourceType:`audio`, val: 24},
+  {url:`${ASSET_PATH}/audio/voice_025.mp3`, resourceType:`audio`, val: 25}
 ];
 
 
