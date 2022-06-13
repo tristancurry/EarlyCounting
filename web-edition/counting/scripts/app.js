@@ -638,12 +638,12 @@ function unshuffleArray (array) {
 
 function shuffleSequence () {
   shuffleArray(sequence);
-  position = sequence.findIndex((element) => {element == N});
+  position = sequence.indexOf(N);
 }
 
 function unshuffleSequence () {
   unshuffleArray(sequence);
-  position = sequence.findIndex((element) => {element == N});
+  position = sequence.indexOf(N);
 }
 
 function resetSequence () {
