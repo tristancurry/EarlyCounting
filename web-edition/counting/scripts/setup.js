@@ -201,6 +201,15 @@ const soundButtonMarkup = `
  <path class="nope hide" d="m19.474 19.598a5.5408 5.5414 0 0 0-3.8937 1.6234 5.5408 5.5414 0 0 0 0 7.8358l122.14 122.15-122.14 122.15a5.5408 5.5414 0 0 0 0 7.8358 5.5408 5.5414 0 0 0 7.835 0l122.14-122.15 122.14 122.15a5.5408 5.5414 0 0 0 7.835 0 5.5408 5.5414 0 0 0 0-7.8358l-122.14-122.15 122.14-122.15a5.5408 5.5414 0 0 0 0-7.8358 5.5408 5.5414 0 0 0-3.9413-1.6234 5.5408 5.5414 0 0 0-3.8937 1.6234l-122.14 122.15-122.14-122.15a5.5408 5.5414 0 0 0-3.9413-1.6234z" color="#000000" color-rendering="auto" dominant-baseline="auto" image-rendering="auto" shape-rendering="auto" solid-color="#000000" stop-color="#000000" stroke="#fff" stroke-linecap="round" stroke-width="10" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;inline-size:0;isolation:auto;mix-blend-mode:normal;paint-order:markers stroke fill;shape-margin:0;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
 </svg>`;
 
+const shuffleButtonMarkup = `
+<svg version="1.1" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <g class="shufflearrows" transform="translate(-2,26)" fill-rule="evenodd">
+ <path d="m12.955 7.3356c91.765-9.1765 113.18 16.932 141.43 106.88 20.512 65.315 76.111 52.9 76.111 52.9l-9.7163-30.768c17.98 20.899 36.013 38.282 76.651 52.36-35.276 10.695-55.003 29.237-76.651 49.121l8.0969-29.149c-1.2457 4.388-88.446 4.828-116.06-63.156-25.199-62.049-15.465-102.87-97.163-94.464z"/>
+ <path d="m12.353 225.21c69.093-1.6194 123.16-11.869 139.81-107.42 9.8054-56.277 76.807-54.484 79.349-58.298l-7.5571 28.609c22.072-23.6 45.218-39.029 71.792-49.121-21.586-10.21-55.618-32.993-74.491-49.121l11.875 28.069c-1.2457-4.388-85.84-10.776-117.67 77.73-32.842 91.309-44.614 85.055-103.64 85.287z"/>
+</g>
+</svg>
+`;
+
 
 const aboutLogoMarkup = `
 <svg version="1.1" viewBox="0 0 943.84 547.91" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">

@@ -2,6 +2,11 @@ const N_MAX = 25; // highest number expected
 const cellsRequired = Math.pow(Math.ceil(Math.sqrt(N_MAX)), 2);
 const IMAGE_PATH = 'assets/images/apple.png';
 let N = 1;
+let position = 0;
+
+
+
+
 let counted = 0;
 if(N > N_MAX) {
   N = N_MAX;
@@ -17,7 +22,8 @@ const settings_default = {
   sound_on: true,
   countdirection: 'up-only',
   countlimit: 9,
-  applecolourOffset: 0
+  applecolourOffset: 0,
+  shuffle: false,
 }
 
 const settings = {};
@@ -37,18 +43,23 @@ if (storageAvailable('localStorage')) {
       localStorage.setItem(s, value);
     }
   } else {
-    //load stored settings into msapplication
+    //load stored settings into application
     for (const s in settings) {
       let value = localStorage.getItem(s);
       if (value === 'true') {value = true;}
       if (value === 'false') {value = false;}
-      settings[s] = value;
+      if(value != null) {
+        settings[s] = value;
+      } else {
+        settings[s] = settings_default[s];
+      }
     }
   }
 }
 
 
-
+let sequence = [];
+resetSequence();
 
 
 
@@ -73,8 +84,8 @@ prevButton.insertAdjacentHTML('beforeend', prevButtonMarkup);
 const soundToggle = document.getElementsByClassName('soundtoggle')[0];
 soundToggle.insertAdjacentHTML('beforeend', soundButtonMarkup);
 
-const shuffleButton = '';
-
+const shuffleNumbers = document.getElementsByClassName('shufflenumbers')[0];
+shuffleNumbers.insertAdjacentHTML('beforeend', shuffleButtonMarkup);
 const optionsButton = document.getElementsByClassName('options')[0];
 
 const numberDisplay = document.getElementsByClassName('number')[0];
@@ -119,6 +130,10 @@ countlimitControl.addEventListener('click', (event) => {
       //reduce countlimit, if countlimit is > 1
       if(settings.countlimit > 1) {
         settings.countlimit --;
+        if(settings.shuffle == true) {
+          resetSequence();
+          shuffleSequence();
+        }
       }
       //disable when countlimit is 1
       if(settings.countlimit <= 1) {
@@ -138,6 +153,10 @@ countlimitControl.addEventListener('click', (event) => {
       //increase countlimit, if countlimit < N_MAX
       if(settings.countlimit < N_MAX) {
         settings.countlimit ++;
+        if(settings.shuffle == true) {
+          resetSequence();
+          shuffleSequence();
+        }
       }
       //disable when countlimit is N_MAX
       if(settings.countlimit >= N_MAX) {
@@ -190,20 +209,24 @@ optionsBackground.addEventListener('click', (event) => {
 });
 
 nextButton.addEventListener('click', () => {
-  if(N < settings.countlimit) {
-    N++;
+  if(position < sequence.length - 1) {
+    position++;
+    N = sequence[position];
   } else {
-    N = 1;
+    position = 0;
+    N = sequence[position];
   }
   resizeGrid(N);
   resetAppleCount();
 });
 
 prevButton.addEventListener('click', () => {
-  if(N > 1) {
-    N--;
+  if(position > 0) {
+    position--;
+    N = sequence[position];
   } else {
-    N = settings.countlimit;
+    position = sequence.length - 1;
+    N = sequence[position];
   }
   resizeGrid(N);
   resetAppleCount();
@@ -224,6 +247,31 @@ soundToggle.addEventListener ('click', () => {
   }
  });
 
+
+ shuffleNumbers.addEventListener ('click', ()=> {
+  //if numbers aren't shuffled already,
+  if (settings.shuffle == false) {
+    //set shuffle to true
+    settings.shuffle = true;
+    //shuffle them and determine current position in sequence
+    shuffleSequence();
+    //change state of button to 'highlighted'
+    shuffleNumbers.getElementsByClassName('shufflearrows')[0].classList.add('shuffle-active');
+  } else {
+    //if numbers are already shuffled...
+    //set shuffle to false
+    settings.shuffle = false;
+    //unshuffle them and determine current position in sequence
+    unshuffleSequence();
+    //change state of button to 'normal'
+    shuffleNumbers.getElementsByClassName('shufflearrows')[0].classList.remove('shuffle-active');
+    
+  }
+  //retain preference
+  if (storageAvailable('localStorage')) {
+    localStorage.setItem('shuffle', settings.shuffle);
+  }
+});
 
 
 const appleGrid = document.getElementsByClassName('countables-grid')[0];
@@ -547,13 +595,17 @@ function applySettings () {
   //apple colour - set slider to relevant position
   applecolourSlider.value = parseInt(settings.applecolourOffset);
   applecolourSlider.dispatchEvent(new Event('input'));
-  //countlimit - adjust, and restrict displayed apples as necessary
-  settings.countlimit++;
-  document.getElementById('limit-less').dispatchEvent(new Event('click'));
+  //countlimit - adjust
   let display = countlimitControl.getElementsByClassName('countlimit')[0];
   display.innerText = settings.countlimit;
   //count direction
   document.getElementById(settings.countdirection).checked = true;
+  //shuffle
+  if(settings.shuffle == true) {
+    resetSequence();
+    shuffleSequence();
+    shuffleNumbers.getElementsByClassName('shufflearrows')[0].classList.add('shuffle-active');
+  }
 }
 
 function restoreDefaultSettings () {
@@ -563,5 +615,33 @@ function restoreDefaultSettings () {
     if(storageAvailable('localStorage')) {
       localStorage.setItem(s, value);
     }
+  }
+}
+
+function shuffleArray (array) {
+  for (let l = array.length, i = l - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function unshuffleArray (array) {
+  array.sort(function(a, b){return a - b});
+}
+
+function shuffleSequence () {
+  shuffleArray(sequence);
+  position = sequence.findIndex((element) => {element == N});
+}
+
+function unshuffleSequence () {
+  unshuffleArray(sequence);
+  position = sequence.findIndex((element) => {element == N});
+}
+
+function resetSequence () {
+sequence = [];
+  for (let i = 0; i < settings.countlimit; i++) {
+    sequence.push(i + 1);
   }
 }

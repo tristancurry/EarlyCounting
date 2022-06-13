@@ -104,10 +104,18 @@ button {
     fill: rgb(155, 100, 100);
   }
 
-  .speakercone {
+  .speakercone, .shufflearrows {
     fill: var(--buttonBg);
     stroke: var(--buttonBg);
+  }
+
+  .speakercone {
     stroke-width: 10px;
+  }
+
+  .shuffle-active {
+    fill: var(--buttonBgAlt);
+    stroke: var(--buttonBgAlt);
   }
 
   .soundwaves {
