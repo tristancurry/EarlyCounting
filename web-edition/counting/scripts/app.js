@@ -160,8 +160,8 @@ countlimitControl.addEventListener('click', (event) => {
       //increase countlimit, if countlimit < N_MAX
       if(settings.countlimit < N_MAX) {
         settings.countlimit ++;
+        resetSequence();
         if(settings.shuffle == true) {
-          resetSequence();
           shuffleSequence();
         }
       }
