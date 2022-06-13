@@ -344,13 +344,42 @@ span.countlimit {
 }
 
 
+.logo {
+  position: relative;
+  overflow: hidden;
+}
+
 .logo-shadow {
   filter: grayscale(100%);
 }
 
 .logo svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  order: 1;
 	width: 100%;
 	height: 100%;
+  transition: transform 0.5s ease-in-out;
+
+}
+
+.secret-credits-lol {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+  text-align: center;
+}
+
+.secret-credits-lol p {
+  display: block;
+}
+
+.slide-up {
+  transform: translateY(-100%);
 }
 
 .hide {
@@ -472,12 +501,15 @@ span.countlimit {
 		border: 1px solid grey;
 		padding-bottom: 5px;
 		box-sizing: border-box;
+    overflow: hidden;
 	}
 
 	.options-window .logo {
 		padding: 1vh;
 		height: 90%;
+    width: 50%;
 	}
+
 
 
 	.options-window .about {
@@ -665,8 +697,8 @@ span.countlimit {
 
 	.options-window .logo {
 		width: 70%;
+    height: 100%;
 		max-width: 28vh;
-		max-height: 20vh;
 		padding-top: 1vh;
 	}
 

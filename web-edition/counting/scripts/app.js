@@ -97,6 +97,13 @@ const soundonoffControl = document.getElementsByClassName('soundonoff')[0];
 const countlimitControl = document.getElementsByClassName('countlimit')[0];
 //setup event listeners for the various options.
 
+logo.addEventListener('click', () => {
+  let logoChildren = logo.children;
+  for(let i = 0, l = logoChildren.length; i < l; i++) {
+    logoChildren[i].classList.toggle('slide-up');
+  }
+});
+
 const countDir_radios = countdirectionControl.getElementsByTagName('input');
 for (const radio of countDir_radios) {
   radio.onclick = (event) => {
